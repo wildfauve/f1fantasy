@@ -21,7 +21,6 @@ MemberPerky = member.Member(name="Perky")
 MemberPiri = member.Member(name="Piri")
 MemberEdouard = member.Member(name="Edouard")
 
-
 TeamGelatoGiants = (fantasy.FantasyTeam(name="TeamGelatoGiants")
                     .has_members([MemberBronzie, MemberLemmie, MemberJuki]))
 TeamMusicalBears = (fantasy.FantasyTeam(name="Team Musical Bears")
@@ -46,9 +45,6 @@ def teams(g: Graph):
 
 
 def add_teams_to_graph(g, team):
-    t, _, _ = gn.first_matching_triple(g, (team.subject, None, None))
-    if t:
-        return g
     g.add((team.subject, RDF.type, rdf_prefix.fau_f1.FantasyTeam))
     g.set((team.subject, rdf_prefix.skos.notation, Literal(team.name)))
     add_members(g, team.subject, team.members)
@@ -62,11 +58,6 @@ def add_members(g, team_subject, members):
             g.add((mem.subject, RDF.type, rdf_prefix.fau_f1.FantasyMember))
             g.set((mem.subject, FOAF.name, Literal(member)))
         return g
-
-
-
-def member_subject(member):
-    return URIRef(f"https://fauve.io/fantasyMember/{member}")
 
 
 def build_graph(g):

@@ -2,8 +2,14 @@ from rdflib import Graph
 from pathlib import Path
 
 from f1fantasy.graph import binding
+from f1fantasy.util import singleton
 
-BASE_PATH = (Path(__file__).parent / "f1fantasy-model.ttl")
+class Repo(singleton.Singleton):
+
+    def configure(self, triples_location: Path) -> None:
+        self.triples_location = triples_location
+        pass
+
 
 
 def empty_graph():
@@ -12,14 +18,18 @@ def empty_graph():
 
 def graph():
     g = initgraph()
-    if BASE_PATH.exists():
-        g.parse(BASE_PATH)
+    if Repo().triples_location.exists():
+        g.parse(Repo().triples_location)
     return g
 
 
 def save(g: Graph):
-    write_to_ttl(g, file=BASE_PATH)
+    write_to_ttl(g, file=Repo().triples_location)
     return g
+
+
+def drop():
+    Repo().triples_location.unlink(missing_ok=True)
 
 
 def initgraph() -> Graph:

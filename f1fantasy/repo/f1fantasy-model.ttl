@@ -1,0 +1,63 @@
+@prefix fau-f1: <https://fauve.io/ontology/TENNIS/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://fauve.io/fantasyTeam/TeamClojo> a fau-f1:FantasyTeam ;
+    skos:notation "Team Clojo" ;
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Claudie>,
+        <https://fauve.io/fantasyMember/Fyodoro> .
+
+<https://fauve.io/fantasyTeam/TeamFauve> a fau-f1:FantasyTeam ;
+    skos:notation "Team Fauve" ;
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Perky> .
+
+<https://fauve.io/fantasyTeam/TeamGelatoGiants> a fau-f1:FantasyTeam ;
+    skos:notation "TeamGelatoGiants" ;
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Bronzie>,
+        <https://fauve.io/fantasyMember/Juki>,
+        <https://fauve.io/fantasyMember/Lemmie> .
+
+<https://fauve.io/fantasyTeam/TeamLightHouse> a fau-f1:FantasyTeam ;
+    skos:notation "Team LightHouse" ;
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Edouard>,
+        <https://fauve.io/fantasyMember/Piri> .
+
+<https://fauve.io/fantasyTeam/TeamMusicalBears> a fau-f1:FantasyTeam ;
+    skos:notation "Team Musical Bears" ;
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Beetie>,
+        <https://fauve.io/fantasyMember/Motzie>,
+        <https://fauve.io/fantasyMember/Rinksy> .
+
+<https://fauve.io/fantasyMember/Beetie> a fau-f1:FantasyMember ;
+    foaf:name "Beetie" .
+
+<https://fauve.io/fantasyMember/Bronzie> a fau-f1:FantasyMember ;
+    foaf:name "Bronzie" .
+
+<https://fauve.io/fantasyMember/Claudie> a fau-f1:FantasyMember ;
+    foaf:name "Claudie" .
+
+<https://fauve.io/fantasyMember/Edouard> a fau-f1:FantasyMember ;
+    foaf:name "Edouard" .
+
+<https://fauve.io/fantasyMember/Fyodoro> a fau-f1:FantasyMember ;
+    foaf:name "Fyodoro" .
+
+<https://fauve.io/fantasyMember/Juki> a fau-f1:FantasyMember ;
+    foaf:name "Juki" .
+
+<https://fauve.io/fantasyMember/Lemmie> a fau-f1:FantasyMember ;
+    foaf:name "Lemmie" .
+
+<https://fauve.io/fantasyMember/Motzie> a fau-f1:FantasyMember ;
+    foaf:name "Motzie" .
+
+<https://fauve.io/fantasyMember/Perky> a fau-f1:FantasyMember ;
+    foaf:name "Perky" .
+
+<https://fauve.io/fantasyMember/Piri> a fau-f1:FantasyMember ;
+    foaf:name "Piri" .
+
+<https://fauve.io/fantasyMember/Rinksy> a fau-f1:FantasyMember ;
+    foaf:name "Rinksy" .
+

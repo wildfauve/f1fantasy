@@ -4,9 +4,11 @@ from pathlib import Path
 from f1fantasy.graph import binding
 from f1fantasy.util import singleton
 
+DB_LOCATION = (Path(__file__).parent / "f1fantasy-model.ttl")
+
 class Repo(singleton.Singleton):
 
-    def configure(self, triples_location: Path) -> None:
+    def configure(self, triples_location: Path = DB_LOCATION) -> None:
         self.triples_location = triples_location
         pass
 

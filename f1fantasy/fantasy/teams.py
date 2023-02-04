@@ -56,7 +56,7 @@ def add_members(g, team_subject, members):
         if not s:
             g.add((team_subject, rdf_prefix.fau_f1.hasFantasyMembers, mem.subject))
             g.add((mem.subject, RDF.type, rdf_prefix.fau_f1.FantasyMember))
-            g.set((mem.subject, FOAF.name, Literal(member)))
+            g.set((mem.subject, FOAF.name, Literal(mem.name)))
         return g
 
 

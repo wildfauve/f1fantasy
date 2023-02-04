@@ -38,7 +38,7 @@ from . import years
 
 def gps(g: Graph):
     [add_gp_to_graph(g, prix) for prix in grand_prix_in_module()]
-    [add_event_to_graph(g, year_events) for year_module in years.years for year_events in year_module.year_events]
+    [add_events_to_graph(g, year_module) for year_module in years.years]
     return g
 
 
@@ -47,13 +47,10 @@ def add_gp_to_graph(g, prix):
     g.set((prix.subject, rdf_prefix.skos.notation, Literal(prix.name)))
 
 
-def add_event_to_graph(g, event_for_year):
-    g.add((event_for_year.subject, RDF.type, rdf_prefix.fau_f1.GrandPrixEvent))
-    g.add((event_for_year.subject, rdf_prefix.fau_f1.isEventOf, event_for_year.gp.subject))
-    g.set((event_for_year.subject, rdf_prefix.skos.notation, Literal(event_for_year.name)))
-    g.set((event_for_year.subject, rdf_prefix.fau_f1.isInYear, Literal(event_for_year.year)))
-    g.set((event_for_year.subject, rdf_prefix.fau_f1.isGpRound, Literal(event_for_year.round)))
-    g.set((event_for_year.subject, rdf_prefix.fau_f1.hasGpDate, Literal(event_for_year.gp_date)))
+def add_events_to_graph(g, year_module):
+    return getattr(year_module, "add_events_to_graph")(g)
+
+
 
 
 def grand_prix_in_module():

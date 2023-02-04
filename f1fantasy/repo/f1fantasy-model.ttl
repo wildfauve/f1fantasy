@@ -5,56 +5,56 @@
 
 <https://fauve.io/f1/grandPrix/2023/ABD> a fau-f1:GrandPrixEvent ;
     skos:notation "Abu Dhabi Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-11-26" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/ABD> ;
     fau-f1:isGpRound 23 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/AUS> a fau-f1:GrandPrixEvent ;
     skos:notation "Australian Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-04-02" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/AUS> ;
     fau-f1:isGpRound 3 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/AUT> a fau-f1:GrandPrixEvent ;
     skos:notation "Austrian Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-07-02" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/AUT> ;
     fau-f1:isGpRound 10 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/AZB> a fau-f1:GrandPrixEvent ;
     skos:notation "Azerbaijan Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-04-30" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/AZB> ;
     fau-f1:isGpRound 4 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/BEL> a fau-f1:GrandPrixEvent ;
     skos:notation "Belgian Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-07-30" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/BEL> ;
     fau-f1:isGpRound 13 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/BRA> a fau-f1:GrandPrixEvent ;
     skos:notation "Brazilian Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-11-05" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/BRA> ;
     fau-f1:isGpRound 21 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/CAN> a fau-f1:GrandPrixEvent ;
     skos:notation "Canadian Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-06-18" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/CAN> ;
     fau-f1:isGpRound 9 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/EMR> a fau-f1:GrandPrixEvent ;
     skos:notation "Emilia Romagna Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-05-21" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/EMR> ;
     fau-f1:isGpRound 6 ;
     fau-f1:isInYear 2023 .
@@ -68,28 +68,28 @@
 
 <https://fauve.io/f1/grandPrix/2023/GBR> a fau-f1:GrandPrixEvent ;
     skos:notation "British Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-07-09" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/GBR> ;
     fau-f1:isGpRound 11 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/HUN> a fau-f1:GrandPrixEvent ;
     skos:notation "Hungarian Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-07-23" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/HUN> ;
     fau-f1:isGpRound 12 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/ITA> a fau-f1:GrandPrixEvent ;
     skos:notation "Italian Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-09-03" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/ITA> ;
     fau-f1:isGpRound 15 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/JAP> a fau-f1:GrandPrixEvent ;
     skos:notation "Japanese Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-09-24" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/JAP> ;
     fau-f1:isGpRound 17 ;
     fau-f1:isInYear 2023 .
@@ -103,21 +103,21 @@
 
 <https://fauve.io/f1/grandPrix/2023/MEX> a fau-f1:GrandPrixEvent ;
     skos:notation "Mexico City Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-10-29" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/MEX> ;
     fau-f1:isGpRound 20 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/MIA> a fau-f1:GrandPrixEvent ;
     skos:notation "Miami Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-05-07" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/MIA> ;
     fau-f1:isGpRound 5 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/MON> a fau-f1:GrandPrixEvent ;
     skos:notation "Monaco Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-05-28" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/MON> ;
     fau-f1:isGpRound 7 ;
     fau-f1:isInYear 2023 .
@@ -138,28 +138,28 @@
 
 <https://fauve.io/f1/grandPrix/2023/SAU> a fau-f1:GrandPrixEvent ;
     skos:notation "Saudi Arabian Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-03-19" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/SAU> ;
     fau-f1:isGpRound 2 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/SIG> a fau-f1:GrandPrixEvent ;
     skos:notation "Singapore Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-09-17" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/SIG> ;
     fau-f1:isGpRound 16 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/SPA> a fau-f1:GrandPrixEvent ;
     skos:notation "Spanish Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-06-04" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/SPA> ;
     fau-f1:isGpRound 8 ;
     fau-f1:isInYear 2023 .
 
 <https://fauve.io/f1/grandPrix/2023/USA> a fau-f1:GrandPrixEvent ;
     skos:notation "United States Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-" ;
+    fau-f1:hasGpDate "2023-10-22" ;
     fau-f1:isEventOf <https://fauve.io/f1/grandPrix/USA> ;
     fau-f1:isGpRound 1 ;
     fau-f1:isInYear 2023 .

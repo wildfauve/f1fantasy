@@ -9,6 +9,7 @@ from . import value
 @dataclass
 class Gp(value.ValueObject):
     name: str = None
+    label: str = None
     symbolic_name: str = None
     subject: URIRef = None
     root_uri: str = "https://fauve.io/f1/grandPrix/"

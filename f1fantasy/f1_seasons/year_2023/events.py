@@ -65,9 +65,10 @@ def add_events_to_graph(g):
     return g
 
 def add_event_to_graph(g, event_for_year):
-    g.add((event_for_year.subject, RDF.type, rdf_prefix.fau_f1.GrandPrixEvent))
-    g.add((event_for_year.subject, rdf_prefix.fau_f1.isEventOf, event_for_year.gp.subject))
-    g.set((event_for_year.subject, rdf_prefix.skos.notation, Literal(event_for_year.name)))
+    g.add((event_for_year.subject, RDF.type, rdf_prefix.fau_f1.Formula1GrandPrix))
+    g.add((event_for_year.subject, RDF.type, rdf_prefix.fau_ev.SportsEvent))
+    g.add((event_for_year.subject, rdf_prefix.fau_ev.isEventOf, event_for_year.gp.subject))
+    g.set((event_for_year.subject, rdf_prefix.fau_ev.label, Literal(event_for_year.name)))
     g.set((event_for_year.subject, rdf_prefix.fau_f1.isInYear, Literal(event_for_year.year)))
     g.set((event_for_year.subject, rdf_prefix.fau_f1.isGpRound, Literal(event_for_year.round)))
     g.set((event_for_year.subject, rdf_prefix.fau_f1.hasGpDate, Literal(event_for_year.gp_date)))

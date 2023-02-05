@@ -13,7 +13,7 @@ def scoring(g: Graph):
 
 def add_event_score_to_graph(g, year_ev_score):
     g.add((year_ev_score.subject, RDF.type, rdf_prefix.fau_f1.FantasyEventScore))
-    g.add((year_ev_score.subject, rdf_prefix.fau_f1.isEventPointsForTeam, year_ev_score.for_team.subject))
-    g.add((year_ev_score.subject, rdf_prefix.fau_f1.isEventPointsForEvent, year_ev_score.for_event.subject))
-    g.set((year_ev_score.subject, rdf_prefix.fau_f1.hasFantasyEventScore, Literal(year_ev_score.points)))
+    g.add((year_ev_score.subject, rdf_prefix.fau_f1.isForTeam, year_ev_score.for_team.subject))
+    g.add((year_ev_score.subject, rdf_prefix.fau_f1.isForEvent, year_ev_score.for_event.subject))
+    g.set((year_ev_score.subject, rdf_prefix.fau_f1.hasEventScore, Literal(year_ev_score.points)))
     return g

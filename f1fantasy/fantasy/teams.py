@@ -1,3 +1,4 @@
+import sys
 from functools import partial
 import json
 from rdflib import Graph, RDF, Literal, URIRef, FOAF
@@ -10,43 +11,79 @@ from f1fantasy.util import fn, echo
 MemberBronzie = member.Member(name="Bronzie")
 MemberJuki = member.Member(name="Juki")
 MemberLemmie = member.Member(name="Lemmie")
+
+MemberIceTea = member.Member(name="Ice Tea")
+MemberGertie = member.Member(name="Gertie")
+MemberPepsi = member.Member(name="Pepsi")
+MemberRollie = member.Member(name="Rollie")
+
+MemberMarmalade = member.Member(name="Marmalade")
+MemberGreenwich = member.Member(name="Greenwich")
+MemberRichmond = member.Member(name="Richmond")
+
 MemberRinsky = member.Member(name="Rinksy")
+
 MemberBeetie = member.Member(name="Beetie")
 MemberMotzie = member.Member(name="Motzie")
+
 MemberPerky = member.Member(name="Perky")
 MemberClaudie = member.Member(name="Claudie")
 MemberFyodoro = member.Member(name="Fyodoro")
-MemberMotzie = member.Member(name="Motzie")
-MemberPerky = member.Member(name="Perky")
+
 MemberPiri = member.Member(name="Piri")
 MemberEdouard = member.Member(name="Edouard")
+MemberPinky = member.Member(name="Pinky")
+MemberPurplePerky = member.Member(name="Purple")
+MemberSandi = member.Member(name="Sandi")
+MemberFlorance = member.Member(name="Florance")
 
+MemberCarter = member.Member(name="Carter")
+MemberMorris = member.Member(name="Morris")
+
+# Managed by Juki
 TeamGelatoGiants = (fantasy.FantasyTeam(name="TeamGelatoGiants")
                     .has_members([MemberBronzie, MemberLemmie, MemberJuki]))
-TeamMusicalBears = (fantasy.FantasyTeam(name="Team Musical Bears")
-                    .has_members([MemberBeetie, MemberMotzie, MemberRinsky]))
-TeamFauve = (fantasy.FantasyTeam(name="Team Fauve")
-             .has_members([MemberPerky]))
-TeamClojos = (fantasy.FantasyTeam(name="Team Clojo")
-              .has_members([MemberClaudie, MemberFyodoro]))
-TeamLightHouse = (fantasy.FantasyTeam(name="Team LightHouse")
-                  .has_members([MemberPiri, MemberEdouard]))
 
-fantasy_teams = [TeamGelatoGiants,
-                 TeamMusicalBears,
-                 TeamClojos,
-                 TeamLightHouse,
-                 TeamFauve]
+TeamPolarPrecision = (fantasy.FantasyTeam(name="Polar Precision")
+                      .has_members(([MemberIceTea, MemberGertie, MemberRollie, MemberPepsi])))
+
+TeamHeroHangouts = (fantasy.FantasyTeam(name="Hero Hangouts")
+                    .has_members([MemberMarmalade, MemberRichmond, MemberGreenwich]))
+
+TeamBearNecessities = (fantasy.FantasyTeam(name="Bear Necessities"))
+
+# Managed by Perky
+TeamRinsky = (fantasy.FantasyTeam(name="Rinksy Racing")
+              .has_members([MemberRinsky]))
+
+TeamMusicalBears = (fantasy.FantasyTeam(name="Musical Bears").has_members([MemberBeetie, MemberMotzie]))
+
+TeamFauve = (fantasy.FantasyTeam(name="Fauve F1")
+             .has_members([MemberPerky]))
+
+TeamClojos = (fantasy.FantasyTeam(name="Clojos")
+              .has_members([MemberClaudie, MemberFyodoro]))
+
+TeamLightHouse = (fantasy.FantasyTeam(name="LightHouse.F1")
+                  .has_members([MemberPiri,
+                                MemberEdouard,
+                                MemberSandi,
+                                MemberPinky,
+                                MemberFlorance,
+                                MemberPurplePerky]))
+
+TeamCarterMorris = (fantasy.FantasyTeam(name="carter.morris.racing").has_members([MemberCarter, MemberMorris]))
 
 
 def teams(g: Graph):
-    [add_teams_to_graph(g, team) for team in fantasy_teams]
+    [add_teams_to_graph(g, team) for team in teams_in_module()]
     return g
 
 
 def add_teams_to_graph(g, team):
     g.add((team.subject, RDF.type, rdf_prefix.fau_f1.FantasyTeam))
-    g.set((team.subject, rdf_prefix.skos.notation, Literal(team.name)))
+    g.add((team.subject, RDF.type, rdf_prefix.foaf.Group))
+    g.set((team.subject, rdf_prefix.foaf.name, Literal(team.name)))
     add_members(g, team.subject, team.members)
 
 
@@ -64,30 +101,9 @@ def build_graph(g):
     [team.build_graph(g) for team in teams]
 
 
-def symbolised_names():
-    return [t.symbolic_name for t in teams]
-
-
-def explain_points_for_team(team_name, teams):
-    team = find_team_by_name(team_name, teams)
-    if not team:
-        echo.echo("Team Not Found")
-        return None
-    echo.echo(json.dumps(team.explain_points(), indent=4))
-    pass
-
-
-def find_team_by_name(team_name, teams):
-    return fn.find(partial(_team_name_predicate, team_name), teams)
-
-
-def find_team(team, teams):
-    return fn.find(partial(_team_predicate, team), teams)
-
-
-def _team_name_predicate(team_name, team):
-    return team_name == team.symbolic_name
-
-
 def _team_predicate(team_to_find, team):
     return team_to_find == team
+
+
+def teams_in_module():
+    return [getattr(sys.modules[__name__], name) for name in dir(sys.modules[__name__]) if 'Team' in name]

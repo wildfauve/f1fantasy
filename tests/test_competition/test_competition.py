@@ -11,6 +11,9 @@ def test_load_and_save_from_declarations():
 
     team_subs = {s.toPython() for s, _, _ in teams}
 
-    assert team_subs == {'https://fauve.io/fantasyTeam/TeamFauve', 'https://fauve.io/fantasyTeam/TeamGelatoGiants',
-                         'https://fauve.io/fantasyTeam/TeamLightHouse', 'https://fauve.io/fantasyTeam/TeamMusicalBears',
-                         'https://fauve.io/fantasyTeam/TeamClojo'}
+    assert team_subs == {'https://fauve.io/fantasyTeam/FauveF1', 'https://fauve.io/fantasyTeam/RinksyRacing',
+                         'https://fauve.io/fantasyTeam/PolarPrecision', 'https://fauve.io/fantasyTeam/MusicalBears',
+                         'https://fauve.io/fantasyTeam/Clojos', 'https://fauve.io/fantasyTeam/TeamGelatoGiants',
+                         'https://fauve.io/fantasyTeam/HeroHangouts',
+                         'https://fauve.io/fantasyTeam/carter.morris.racing',
+                         'https://fauve.io/fantasyTeam/BearNecessities', 'https://fauve.io/fantasyTeam/LightHouse.F1'}

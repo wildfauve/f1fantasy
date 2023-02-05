@@ -10,10 +10,18 @@ triples.Repo().configure()
 
 
 def load_and_save() -> Graph:
-    g = (Pipe(triples.graph())
-         .then(teams.teams)
-         .then(grand_prix.gps)
-         .then(fantasy_scoring.scoring)
-         .flush())
+    g = save(load_graph(triples.graph()))
+    return g
+
+
+def load_graph(g: Graph) -> Graph:
+    return (Pipe(g)
+            .then(teams.teams)
+            .then(grand_prix.gps)
+            .then(fantasy_scoring.scoring)
+            .flush())
+
+
+def save(g: Graph):
     triples.save(g)
     return g

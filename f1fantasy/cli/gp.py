@@ -44,4 +44,17 @@ def create_season(season):
     pass
 
 
+@click.option("--name", "-n", help="GP Name")
+@click.option("--label", "-l", help="GP Label")
+@click.option("--symbol", "-b", help="GP Symbol")
+@click.command()
+def create_gp(name, label, symbol):
+    """
+    Creates a new F1 Season
+    """
+    command.create_gp(name=name, label=label, symbol=symbol)
+    pass
+
+
 cli.add_command(create_season)
+cli.add_command(create_gp)

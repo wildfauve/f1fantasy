@@ -1,5 +1,6 @@
 from .season import (
-    add_season
+    add_season,
+    add_gp
 )
 
 from .teams import (

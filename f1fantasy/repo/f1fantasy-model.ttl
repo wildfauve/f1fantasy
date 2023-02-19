@@ -1,6 +1,103 @@
 @prefix fau-f1: <https://fauve.io/ontology/F1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://fauve.io/f1/grandPrix/ABD> a fau-f1:GrandPrix ;
+    skos:prefLabel "AbuDhabi" ;
+    fau-f1:gpName "Abu Dhabi Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/AUS> a fau-f1:GrandPrix ;
+    skos:prefLabel "Australia" ;
+    fau-f1:gpName "Australian Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/AUT> a fau-f1:GrandPrix ;
+    skos:prefLabel "Austria" ;
+    fau-f1:gpName "Austrian Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/AZB> a fau-f1:GrandPrix ;
+    skos:prefLabel "Azerbaijan" ;
+    fau-f1:gpName "Azerbaijan Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/BAH> a fau-f1:GrandPrix ;
+    skos:prefLabel "Bahrain" ;
+    fau-f1:gpName "Bahrain Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/BEL> a fau-f1:GrandPrix ;
+    skos:prefLabel "Belgian" ;
+    fau-f1:gpName "Belgian Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/BRA> a fau-f1:GrandPrix ;
+    skos:prefLabel "Brazil" ;
+    fau-f1:gpName "Brazilian Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/CAN> a fau-f1:GrandPrix ;
+    skos:prefLabel "Canada" ;
+    fau-f1:gpName "Canadian Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/EMR> a fau-f1:GrandPrix ;
+    skos:prefLabel "Romagna" ;
+    fau-f1:gpName "Emilia Romagna Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/FRA> a fau-f1:GrandPrix ;
+    skos:prefLabel "France" ;
+    fau-f1:gpName "French Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/GBR> a fau-f1:GrandPrix ;
+    skos:prefLabel "Britian" ;
+    fau-f1:gpName "British Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/HUN> a fau-f1:GrandPrix ;
+    skos:prefLabel "Hungary" ;
+    fau-f1:gpName "Hungarian Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/ITA> a fau-f1:GrandPrix ;
+    skos:prefLabel "Italy" ;
+    fau-f1:gpName "Italian Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/JAP> a fau-f1:GrandPrix ;
+    skos:prefLabel "Japan" ;
+    fau-f1:gpName "Japanese Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/LOS> a fau-f1:GrandPrix ;
+    skos:prefLabel "LasVegas" ;
+    fau-f1:gpName "Las Vegas Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/MEX> a fau-f1:GrandPrix ;
+    skos:prefLabel "Mexico" ;
+    fau-f1:gpName "Mexico City Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/MIA> a fau-f1:GrandPrix ;
+    skos:prefLabel "Miami" ;
+    fau-f1:gpName "Miami Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/MON> a fau-f1:GrandPrix ;
+    skos:prefLabel "Monaco" ;
+    fau-f1:gpName "Monaco Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/NED> a fau-f1:GrandPrix ;
+    skos:prefLabel "Netherlands" ;
+    fau-f1:gpName "Netherlands Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/QAT> a fau-f1:GrandPrix ;
+    skos:prefLabel "Qatar" ;
+    fau-f1:gpName "Qatar Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/SAU> a fau-f1:GrandPrix ;
+    skos:prefLabel "SaudiArabia" ;
+    fau-f1:gpName "Saudi Arabian Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/SIG> a fau-f1:GrandPrix ;
+    skos:prefLabel "Singapore" ;
+    fau-f1:gpName "Singapore Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/SPA> a fau-f1:GrandPrix ;
+    skos:prefLabel "Spain" ;
+    fau-f1:gpName "Spanish Grand Prix" .
+
+<https://fauve.io/f1/grandPrix/USA> a fau-f1:GrandPrix ;
+    skos:prefLabel "USA" ;
+    fau-f1:gpName "United States Grand Prix" .
 
 <https://fauve.io/f1/season/2023> a fau-f1:Season ;
     fau-f1:forYear 2023 .

@@ -205,22 +205,33 @@
 <https://fauve.io/fantasyTeam/HeroHangouts> a foaf:Group,
         fau-f1:FantasyTeam ;
     foaf:name "Hero Hangouts" ;
-    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Marmalade> .
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Greenwich>,
+        <https://fauve.io/fantasyMember/Marmalade>,
+        <https://fauve.io/fantasyMember/Richmond> .
 
 <https://fauve.io/fantasyTeam/LightHouse.F1> a foaf:Group,
         fau-f1:FantasyTeam ;
     foaf:name "LightHouse.F1" ;
-    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Piri> .
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Edouard>,
+        <https://fauve.io/fantasyMember/Florance>,
+        <https://fauve.io/fantasyMember/Pinky>,
+        <https://fauve.io/fantasyMember/Piri>,
+        <https://fauve.io/fantasyMember/Purple>,
+        <https://fauve.io/fantasyMember/Sandi> .
 
 <https://fauve.io/fantasyTeam/MusicalBears> a foaf:Group,
         fau-f1:FantasyTeam ;
     foaf:name "Musical Bears" ;
-    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Beetie> .
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Beetie>,
+        <https://fauve.io/fantasyMember/Motzie> .
 
 <https://fauve.io/fantasyTeam/PolarPrecision> a foaf:Group,
         fau-f1:FantasyTeam ;
     foaf:name "Polar Precision" ;
-    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/IceTea> .
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Gertie>,
+        <https://fauve.io/fantasyMember/IceTea>,
+        <https://fauve.io/fantasyMember/Pepsi>,
+        <https://fauve.io/fantasyMember/Rollie> .
 
 <https://fauve.io/fantasyTeam/RinksyRacing> a foaf:Group,
         fau-f1:FantasyTeam ;
@@ -230,12 +241,15 @@
 <https://fauve.io/fantasyTeam/TeamGelatoGiants> a foaf:Group,
         fau-f1:FantasyTeam ;
     foaf:name "TeamGelatoGiants" ;
-    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Bronzie> .
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Bronzie>,
+        <https://fauve.io/fantasyMember/Juki>,
+        <https://fauve.io/fantasyMember/Lemmie> .
 
 <https://fauve.io/fantasyTeam/carter.morris.racing> a foaf:Group,
         fau-f1:FantasyTeam ;
     foaf:name "carter.morris.racing" ;
-    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Carter> .
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Carter>,
+        <https://fauve.io/fantasyMember/Morris> .
 
 <https://fauve.io/f1/grandPrix/2023/BAH> a fau-ev:SportsEvent,
         fau-f1:Formula1GrandPrix ;
@@ -353,23 +367,69 @@
 <https://fauve.io/fantasyMember/Claudie> a fau-f1:FantasyMember ;
     foaf:name "Claudie" .
 
+<https://fauve.io/fantasyMember/Edouard> a fau-f1:FantasyMember ;
+    foaf:name "Edouard" .
+
+<https://fauve.io/fantasyMember/Florance> a fau-f1:FantasyMember ;
+    foaf:name "Florance" .
+
+<https://fauve.io/fantasyMember/Fyodoro> a fau-f1:FantasyMember ;
+    foaf:name "Fyodoro" .
+
+<https://fauve.io/fantasyMember/Gertie> a fau-f1:FantasyMember ;
+    foaf:name "Gertie" .
+
+<https://fauve.io/fantasyMember/Greenwich> a fau-f1:FantasyMember ;
+    foaf:name "Greenwich" .
+
 <https://fauve.io/fantasyMember/IceTea> a fau-f1:FantasyMember ;
     foaf:name "Ice Tea" .
+
+<https://fauve.io/fantasyMember/Juki> a fau-f1:FantasyMember ;
+    foaf:name "Juki" .
+
+<https://fauve.io/fantasyMember/Lemmie> a fau-f1:FantasyMember ;
+    foaf:name "Lemmie" .
 
 <https://fauve.io/fantasyMember/Marmalade> a fau-f1:FantasyMember ;
     foaf:name "Marmalade" .
 
+<https://fauve.io/fantasyMember/Morris> a fau-f1:FantasyMember ;
+    foaf:name "Morris" .
+
+<https://fauve.io/fantasyMember/Motzie> a fau-f1:FantasyMember ;
+    foaf:name "Motzie" .
+
+<https://fauve.io/fantasyMember/Pepsi> a fau-f1:FantasyMember ;
+    foaf:name "Pepsi" .
+
 <https://fauve.io/fantasyMember/Perky> a fau-f1:FantasyMember ;
     foaf:name "Perky" .
+
+<https://fauve.io/fantasyMember/Pinky> a fau-f1:FantasyMember ;
+    foaf:name "Pinky" .
 
 <https://fauve.io/fantasyMember/Piri> a fau-f1:FantasyMember ;
     foaf:name "Piri" .
 
+<https://fauve.io/fantasyMember/Purple> a fau-f1:FantasyMember ;
+    foaf:name "Purple" .
+
+<https://fauve.io/fantasyMember/Richmond> a fau-f1:FantasyMember ;
+    foaf:name "Richmond" .
+
 <https://fauve.io/fantasyMember/Rinksy> a fau-f1:FantasyMember ;
     foaf:name "Rinksy" .
+
+<https://fauve.io/fantasyMember/Rollie> a fau-f1:FantasyMember ;
+    foaf:name "Rollie" .
+
+<https://fauve.io/fantasyMember/Sandi> a fau-f1:FantasyMember ;
+    foaf:name "Sandi" .
 
 <https://fauve.io/fantasyTeam/Clojos> a foaf:Group,
         fau-f1:FantasyTeam ;
     foaf:name "Clojos" ;
-    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Claudie> .
+    fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Claudie>,
+        <https://fauve.io/fantasyMember/Fyodoro> .
 

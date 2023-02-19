@@ -1,16 +1,17 @@
 import pytest
 from pathlib import Path
 
-from f1fantasy.repo import triples
+from f1fantasy import repo
 
-BASE_PATH = (Path(__file__).parent.parent / "fixtures" / "f1fantasy-model.ttl")
+BASE_PATH = (Path(__file__).parent.parent / "fixtures" / "db_test.ttl")
 
 @pytest.fixture
-def init_repo():
-    triples.Repo().configure(triples_location=BASE_PATH)
+def configure_repo():
+    repo.RepoContext().configure(triples_location=BASE_PATH)
+    repo.init()
     yield
-    triples.drop()
+    repo.drop()
 
 @pytest.fixture
 def empty_graph():
-    return triples.graph()
+    return repo.triples.graph()

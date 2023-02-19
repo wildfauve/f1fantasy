@@ -1,24 +1,26 @@
 from rdflib import Graph
 from pathlib import Path
 from pymonad.reader import Pipe
+from functools import partial
 
 from f1fantasy.fantasy import teams
 from f1fantasy.f1_seasons import grand_prix, fantasy_scoring
 from f1fantasy.repo import triples
 
-triples.Repo().configure()
+triples.RepoContext().configure()
 
 
-def load_and_save() -> Graph:
-    g = save(load_graph(triples.graph()))
+def build(season) -> Graph:
+    breakpoint()
+    g = save(create_graph(triples.graph(), season))
     return g
 
 
-def load_graph(g: Graph) -> Graph:
+def create_graph(g: Graph, season) -> Graph:
     return (Pipe(g)
             .then(teams.teams)
-            .then(grand_prix.gps)
-            .then(fantasy_scoring.scoring)
+            .then(partial(grand_prix.gps, season))
+            .then(partial(fantasy_scoring.scoring, season))
             .flush())
 
 

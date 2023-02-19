@@ -1,41 +1,84 @@
+from typing import Callable
 from rdflib import Graph
 from pathlib import Path
 
-from f1fantasy.graph import binding
+from f1fantasy import rdf
 from f1fantasy.util import singleton
 
 DB_LOCATION = (Path(__file__).parent / "f1fantasy-model.ttl")
 
-class Repo(singleton.Singleton):
+
+class Db:
+
+    def __init__(self,
+                 empty_graph_fn: Callable,
+                 ttl_writer: Callable):
+        self.graph = None
+        self.in_memory = None
+        self.init_empty_graph_fn = empty_graph_fn
+        self.ttl_writer = ttl_writer
+
+    def drop(self):
+        self.ttl_writer(self.init_empty_graph_fn(), file=self.persist_location())
+        return self
+
+    def load(self):
+        if RepoContext().triples_location.exists():
+            g = self.init_empty_graph_fn().parse(RepoContext().triples_location)
+        else:
+            g = self.init_empty_graph_fn()
+            self.in_memory = True
+        self.graph = g
+        return self
+
+    def save(self):
+        self.ttl_writer(self.graph, file=self.persist_location())
+        return self
+
+    def persist_location(self):
+        return RepoContext().triples_location
+
+    def init_empty_graph(self) -> Graph:
+        return self.init_empty_graph_fn()
+
+
+class RepoContext(singleton.Singleton):
 
     def configure(self, triples_location: Path = DB_LOCATION) -> None:
         self.triples_location = triples_location
         pass
 
+    def db_ctx(self, db: Db):
+        self.db = db
 
 
 def empty_graph():
     return initgraph()
 
 
+def init():
+    return RepoContext().db_ctx(Db(empty_graph_fn=initgraph,
+                                   ttl_writer=write_to_ttl).load())
+
+
 def graph():
-    g = initgraph()
-    if Repo().triples_location.exists():
-        g.parse(Repo().triples_location)
-    return g
+    return RepoContext().db.graph
 
 
-def save(g: Graph):
-    write_to_ttl(g, file=Repo().triples_location)
-    return g
+def save():
+    return RepoContext().db.save()
+
+
+def reload():
+    return init()
 
 
 def drop():
-    Repo().triples_location.unlink(missing_ok=True)
+    RepoContext().db.drop()
 
 
 def initgraph() -> Graph:
-    return binding.bind(rdf_graph())
+    return rdf.bind(rdf_graph())
 
 
 def rdf_graph():

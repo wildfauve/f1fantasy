@@ -5,7 +5,7 @@ from f1fantasy.graph import rdf_prefix
 from f1fantasy.repo import triples, gn
 
 
-def test_add_teams_to_graph(init_repo, empty_graph):
+def test_add_teams_to_graph(configure_repo, empty_graph):
     g = triples.save(teams.teams(empty_graph))
 
     team_triples = gn.all_matching_triples(g, (None, RDF.type, rdf_prefix.fau_f1.FantasyTeam))
@@ -19,7 +19,7 @@ def test_add_teams_to_graph(init_repo, empty_graph):
     assert teams_subjects == expected_subjects
 
 
-def test_idempotent_teams_add(init_repo, empty_graph):
+def test_idempotent_teams_add(configure_repo, empty_graph):
     g = triples.save(teams.teams(empty_graph))
 
     g = triples.save((teams.teams(g)))
@@ -33,3 +33,17 @@ def test_idempotent_teams_add(init_repo, empty_graph):
     teams_subjects = {s.toPython() for s, _, _ in team_triples}
 
     assert teams_subjects == expected_subjects
+
+
+def test_display_teams(capsys, configure_repo, empty_graph):
+    g = triples.save(teams.teams(empty_graph))
+
+    teams.show(g)
+
+    captured = capsys.readouterr()
+
+    expected = """Clojos
+|__ Claudie
+|__ Fyodoro"""
+
+    assert expected in captured.out

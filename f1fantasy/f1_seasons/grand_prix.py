@@ -1,3 +1,4 @@
+from typing import Optional
 from functools import partial
 import sys
 import json
@@ -31,12 +32,17 @@ NetherlandsGrandPrix = gp.Gp(name='Netherlands Grand Prix', symbolic_name='NED',
 QatarGrandPrix = gp.Gp(name='Qatar Grand Prix', symbolic_name='QAT', label="Qatar")
 LasVegasGrandPrix = gp.Gp(name='Las Vegas Grand Prix', symbolic_name='LOS', label="LasVegas")
 
-from . import years
+from . import season
 
 
-def gps(g: Graph):
+def gps(for_season: Optional[int] = None, g: Graph = None):
+    if g is None:
+        return g
     [add_gp_to_graph(g, prix) for prix in grand_prix_in_module()]
-    [add_events_to_graph(g, year_module) for year_module in years.years]
+    if not for_season:
+        [add_events_to_graph(g, season_module) for season_module in season.seasons]
+    else:
+        [add_events_to_graph(g, season_module) for season_module in season.seasons if season_module.season == for_season]
     return g
 
 

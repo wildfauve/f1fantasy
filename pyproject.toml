@@ -5,6 +5,10 @@ description = ""
 authors = ["Col Perks <wild.fauve@gmail.com>"]
 readme = "README.md"
 
+[tool.poetry.scripts]
+f1 = "f1fantasy.cli:cli"
+
+
 [tool.poetry.dependencies]
 python = "^3.9"
 rdflib = "^6.2.0"

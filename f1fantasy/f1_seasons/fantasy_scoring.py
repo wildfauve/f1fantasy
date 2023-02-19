@@ -1,15 +1,26 @@
+from typing import Optional
 from functools import partial
 import json
 from rdflib import Graph, RDF, Literal
 
 from f1fantasy.graph import rdf_prefix
 
-from . import years
+from . import season
 
-def scoring(g: Graph):
-    [add_event_score_to_graph(g, year_ev_score) for year_module in years.years for year_ev_score in year_module.scores]
+def scoring(for_season: Optional[int] = None, g: Optional[Graph] = None):
+    if g is None:
+        return g
+    for season_module in season.seasons:
+        if for_season and season_module.season == for_season:
+            add_scores_for_season(g, season_module.scores)
+            continue
+        add_scores_for_season(g, season_module.scores)
     return g
 
+def add_scores_for_season(g, scores):
+    for season_event_score in scores:
+        add_event_score_to_graph(g, season_event_score)
+    return g
 
 def add_event_score_to_graph(g, year_ev_score):
     g.add((year_ev_score.subject, RDF.type, rdf_prefix.fau_f1.FantasyEventScore))

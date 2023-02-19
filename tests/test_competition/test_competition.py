@@ -5,7 +5,7 @@ from f1fantasy.graph import rdf_prefix
 
 
 def test_load_and_save_from_declarations():
-    g = competition.load_and_save()
+    g = competition.build()
 
     teams = g.triples((None, RDF.type, rdf_prefix.fau_f1.FantasyTeam))
 

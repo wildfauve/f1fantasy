@@ -1,9 +1,10 @@
 import sys
 from functools import partial
+from itertools import groupby
 import json
 from rdflib import Graph, RDF, Literal, URIRef, FOAF
 
-from f1fantasy.graph import rdf_prefix
+from f1fantasy.graph import rdf_prefix, sparql
 from f1fantasy.model import fantasy, member
 from f1fantasy.repo import gn
 from f1fantasy.util import fn, echo
@@ -80,6 +81,15 @@ def teams(g: Graph):
     return g
 
 
+def show(g: Graph):
+    for team, mems in groupby(get_teams_and_members(g), lambda x: x[0]):
+        echo.echo(team.toPython())
+        for _, mem in mems:
+            echo.echo(f"|__ {mem.toPython()}")
+
+def get_teams_and_members(g):
+    return sparql.query(g, sparql.teams_and_members())
+
 def add_teams_to_graph(g, team):
     g.add((team.subject, RDF.type, rdf_prefix.fau_f1.FantasyTeam))
     g.add((team.subject, RDF.type, rdf_prefix.foaf.Group))
@@ -94,7 +104,6 @@ def add_members(g, team_subject, members):
             g.add((team_subject, rdf_prefix.fau_f1.hasFantasyMembers, mem.subject))
             g.add((mem.subject, RDF.type, rdf_prefix.fau_f1.FantasyMember))
             g.set((mem.subject, FOAF.name, Literal(mem.name)))
-        return g
 
 
 def build_graph(g):

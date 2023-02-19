@@ -6,7 +6,7 @@ from f1fantasy.graph import rdf_prefix
 from f1fantasy.repo import triples, gn
 
 
-def test_add_gps_to_graph(init_repo, empty_graph):
+def test_add_gps_to_graph(configure_repo, empty_graph):
     g = triples.save(grand_prix.gps(empty_graph))
 
     gp_triples = gn.all_matching_triples(g, (None, RDF.type, rdf_prefix.fau_f1.GrandPrix))
@@ -18,7 +18,7 @@ def test_add_gps_to_graph(init_repo, empty_graph):
     assert gp_subjects == expected_gp_subs
 
 
-def test_add_gp_events_to_graph(init_repo, empty_graph):
+def test_add_gp_events_to_graph(configure_repo, empty_graph):
     g = triples.save(grand_prix.gps(empty_graph))
 
     ev_triples = gn.all_matching_triples(g, (None, RDF.type, rdf_prefix.fau_f1.GrandPrixEvent))

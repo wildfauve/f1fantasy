@@ -1,9 +1,9 @@
 from rdflib import RDF
 
 from f1fantasy.f1_seasons import grand_prix
-from f1fantasy.f1_seasons.year_2023 import events
 from f1fantasy.graph import rdf_prefix
-from f1fantasy.repo import triples, gn
+from f1fantasy.repo import triples
+from f1fantasy.rdf import gn
 
 
 def test_add_gps_to_graph(configure_repo, empty_graph):

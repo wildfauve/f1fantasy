@@ -2,7 +2,8 @@ from rdflib import RDF
 
 from f1fantasy.f1_seasons import fantasy_scoring
 from f1fantasy.graph import rdf_prefix
-from f1fantasy.repo import triples, gn
+from f1fantasy.repo import triples
+from f1fantasy.rdf import gn
 
 
 def test_add_event_points_to_graph(configure_repo, empty_graph):

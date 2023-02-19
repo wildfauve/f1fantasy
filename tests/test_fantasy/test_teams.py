@@ -1,8 +1,8 @@
 from rdflib import RDF
 
-from f1fantasy.fantasy import teams
-from f1fantasy.graph import rdf_prefix
-from f1fantasy.repo import triples, gn
+from f1fantasy.domain import teams
+from f1fantasy.repo import triples
+from f1fantasy.rdf import gn
 
 
 def test_add_teams_to_graph(configure_repo, empty_graph):

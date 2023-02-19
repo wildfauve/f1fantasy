@@ -4,6 +4,11 @@ from .gp import (
     Season
 )
 
+from .fantasy import (
+    Member,
+    FantasyTeam
+)
+
 from .value import (
     Result
 )

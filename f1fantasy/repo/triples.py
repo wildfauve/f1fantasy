@@ -45,8 +45,12 @@ class Db:
 class RepoContext(singleton.Singleton):
 
     def configure(self, triples_location: Path = DB_LOCATION) -> None:
-        self.triples_location = triples_location
+        if not self.already_configured():
+            self.triples_location = triples_location
         pass
+
+    def already_configured(self):
+        return hasattr(self, 'triples_location')
 
     def db_ctx(self, db: Db):
         self.db = db

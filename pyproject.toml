@@ -6,7 +6,8 @@ authors = ["Col Perks <wild.fauve@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.scripts]
-f1 = "f1fantasy.cli:cli"
+gp = "f1fantasy.cli.gp:cli"
+team = "f1fantasy.cli.team:cli"
 
 
 [tool.poetry.dependencies]

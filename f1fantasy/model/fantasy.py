@@ -3,13 +3,25 @@ from dataclasses import dataclass, field
 from rdflib import URIRef
 
 
-from . import value, gp, member
+from . import value, gp
+
+@dataclass
+class Member(value.ValueObject):
+    name: str = None
+    symbolic_name: str = None
+    subject: URIRef = None
+    root_uri: str = "https://fauve.io/fantasyMember/"
+
+    def __post_init__(self):
+        self.symbolic_name = self.name.replace(" ", "")
+        self.subject = URIRef(f"{self.root_uri}{self.symbolic_name}")
 
 
 @dataclass
 class FantasyTeam(value.ValueObject):
     name: str = None
-    members: Optional[List[member.Member]] = field(default_factory=list)
+    members: Optional[List[Member]] = field(default_factory=list)
+    manager: Optional[URIRef] = None
     symbolic_name: str = None
     subject: URIRef = None
     root_uri: str = "https://fauve.io/fantasyTeam/"
@@ -18,7 +30,7 @@ class FantasyTeam(value.ValueObject):
         self.symbolic_name = self.name.replace(" ", "")
         self.subject = URIRef(f"{self.root_uri}{self.symbolic_name}")
 
-    def has_members(self, membership: List[member.Member]):
+    def has_members(self, membership: List[Member]):
         self.members = membership
         return self
 

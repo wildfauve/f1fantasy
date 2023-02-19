@@ -1,5 +1,5 @@
-from f1fantasy.model import gp, fantasy
-from f1fantasy.fantasy import teams
+from f1fantasy.model import fantasy
+from ...domain import teams
 from . import events
 
 

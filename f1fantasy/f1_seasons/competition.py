@@ -1,9 +1,8 @@
 from rdflib import Graph
-from pathlib import Path
 from pymonad.reader import Pipe
 from functools import partial
 
-from f1fantasy.fantasy import teams
+from f1fantasy.domain import teams
 from f1fantasy.f1_seasons import grand_prix, fantasy_scoring
 from f1fantasy.repo import triples
 

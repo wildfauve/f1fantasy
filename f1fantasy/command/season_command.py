@@ -5,12 +5,13 @@ from f1fantasy import domain
 from f1fantasy import model
 from f1fantasy import repo
 
+from . import helpers
 
 def create_season(season: int):
-    result, _, _ = (Pipe((model.Result.OK, _graph(), season))
+    result, _, _ = (Pipe((model.Result.OK, helpers.graph(), season))
                     .then(_season_model)
                     .then(_build_triples)
-                    .then(_save)
+                    .then(helpers.save)
                     .flush())
     return result
 
@@ -25,10 +26,3 @@ def _build_triples(val: Tuple) -> Tuple:
     return model.Result.OK, g, season
 
 
-def _save(val: Tuple) -> Tuple:
-    repo.save()
-    return val
-
-
-def _graph():
-    return repo.graph()

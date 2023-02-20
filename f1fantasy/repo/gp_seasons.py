@@ -6,7 +6,7 @@ def gp_by_symbol_query(gp_symbol: str):
 
     where {{
     ?gp a fau-f1:GrandPrix ;
-          fau-f1:symbol {Literal(gp_symbol).n3()} ;
+          fau-f1:hasSymbol {Literal(gp_symbol).n3()} ;
           fau-f1:gpName ?gp_name ; 
           skos:prefLabel ?label .
     }}

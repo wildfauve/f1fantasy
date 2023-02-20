@@ -12,6 +12,8 @@ class Season(value.ValueObject):
     root_uri: str = "https://fauve.io/f1/season/"
 
     def __post_init__(self):
+        if self.subject:
+            return self
         self.subject = URIRef(f"{self.root_uri}{self.year}")
 
 
@@ -33,8 +35,8 @@ class Gp(value.ValueObject):
 @dataclass
 class GpEvent(value.ValueObject):
     name: str = None
-    year: str = None
-    gp: str = None
+    season: Season = None
+    gp: Gp = None
     round: int = None
     gp_date: str = None
     symbolic_name: str = None
@@ -42,6 +44,6 @@ class GpEvent(value.ValueObject):
     root_uri: str = "https://fauve.io/f1/grandPrix/"
 
     def __post_init__(self):
-        self.name = f"{self.gp.name} {self.year}"
-        self.symbolic_name = f"{self.gp.symbolic_name}-{self.year}"
-        self.subject = URIRef(f"{self.root_uri}{self.year}/{self.gp.symbolic_name}")
+        self.name = f"{self.gp.name} {self.season.year}"
+        self.symbolic_name = f"{self.gp.symbolic_name}-{self.season.year}"
+        self.subject = URIRef(f"{self.root_uri}{self.season.year}/{self.gp.symbolic_name}")

@@ -59,13 +59,13 @@ def _gp_event_model(val: Tuple) -> Tuple:
     _, g, (gp_symbol, season_year, gp_date, for_round) = val
 
     gp = query.find_gp_by_symbol(g, gp_symbol, to_model=True)
-    yr, = query.find_season_by_year(g, season_year)
+    yr = query.find_season_by_year(g, season_year, to_model=True)
 
     if not gp:
         return model.Result.ERR, g, f"Cant find GP with symbol {gp_symbol}"
 
     return model.Result.OK, g, model.GpEvent(gp=gp,
-                                             year=yr,
+                                             season=yr,
                                              round=for_round,
                                              gp_date=gp_date)
 

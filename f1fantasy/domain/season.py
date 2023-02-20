@@ -29,7 +29,7 @@ def _add_season_to_graph(g, season):
 def _add_gp_to_graph(g, prix):
     g.add((prix.subject, RDF.type, rdf.P.fau_f1.GrandPrix))
     g.set((prix.subject, rdf.P.fau_f1.gpName, Literal(prix.name)))
-    g.set((prix.subject, rdf.P.fau_f1.symbol, Literal(prix.symbolic_name)))
+    g.set((prix.subject, rdf.P.fau_f1.hasSymbol, Literal(prix.symbolic_name)))
     g.set((prix.subject, rdf.P.skos.prefLabel, Literal(prix.label)))
 
 
@@ -38,6 +38,6 @@ def _add_gp_event_to_graph(g, event):
     g.add((event.subject, RDF.type, rdf.P.fau_ev.SportsEvent))
     g.add((event.subject, rdf.P.fau_ev.isEventOf, event.gp.subject))
     g.set((event.subject, rdf.P.fau_ev.label, Literal(event.name)))
-    g.set((event.subject, rdf.P.fau_f1.isInYear, event.year))
+    g.set((event.subject, rdf.P.fau_f1.isForSeason, event.season.subject))
     g.set((event.subject, rdf.P.fau_f1.isGpRound, Literal(event.round)))
     g.set((event.subject, rdf.P.fau_f1.hasGpDate, Literal(event.gp_date)))

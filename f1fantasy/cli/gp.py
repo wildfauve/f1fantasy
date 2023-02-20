@@ -1,8 +1,7 @@
 import click
 
-from f1fantasy import command
-from f1fantasy import initialiser
-
+from f1fantasy import initialiser, command
+from . import helpers
 
 
 @click.group()
@@ -50,11 +49,24 @@ def create_season(season):
 @click.command()
 def create_gp(name, label, symbol):
     """
-    Creates a new F1 Season
+    Creates a Grand Prix
     """
     command.create_gp(name=name, label=label, symbol=symbol)
     pass
 
 
+@click.option("--season", "-s", type=click.Choice(helpers.seasons()), help="Pick a Seasion")
+@click.option("--gp", "-g", type=click.Choice(helpers.gp_symbols()), help="GP Symbol")
+@click.option("--date", "-d", help="Date of GP")
+@click.option("--for-round", "-r", help="Round Number")
+@click.command()
+def create_event(gp, season, date, for_round):
+    """
+    Creates an event for a GP in a Season
+    """
+    command.create_season_event(gp_symbol=gp, season_year=int(season), gp_date=date, for_round=for_round)
+
+
 cli.add_command(create_season)
 cli.add_command(create_gp)
+cli.add_command(create_event)

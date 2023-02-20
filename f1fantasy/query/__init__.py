@@ -7,5 +7,6 @@ from .seasons import (
 )
 
 from .fantasy import (
-    find_team_by_name
+    find_team_by_name,
+    all_teams
 )

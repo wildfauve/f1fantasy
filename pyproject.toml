@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.scripts]
 gp = "f1fantasy.cli.gp:cli"
 team = "f1fantasy.cli.team:cli"
+fantasy = "f1fantasy.cli.fantasy:cli"
 
 
 [tool.poetry.dependencies]

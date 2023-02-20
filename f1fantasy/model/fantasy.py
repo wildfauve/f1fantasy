@@ -27,9 +27,9 @@ class FantasyTeam(value.ValueObject):
     root_uri: str = "https://fauve.io/fantasyTeam/"
 
     def __post_init__(self):
+        self.symbolic_name = self.name.replace(" ", "")
         if self.subject:
             return self
-        self.symbolic_name = self.name.replace(" ", "")
         self.subject = URIRef(f"{self.root_uri}{self.symbolic_name}")
 
     def has_members(self, membership: List[Member]):

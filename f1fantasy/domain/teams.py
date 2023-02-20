@@ -1,3 +1,4 @@
+from typing import Callable
 import sys
 from rdflib import Graph, RDF, Literal, FOAF
 
@@ -6,17 +7,13 @@ from f1fantasy.util import echo
 from . import helpers
 
 
-def show_teams():
-    # TODO: Too much logic associated with the team/member groupby.  Consider return model objects.
-    for team in get_teams_and_members(helpers.graph()):
-        echo.echo(team.name)
-        echo.echo(f"|__ Managed by: {team.manager.name}")
-        echo.echo("|__ Members:")
-        for mem in team.members:
-            echo.echo(f"    |__ {mem.name}")
+def show_teams(presenter: Callable):
+    presenter(get_teams_and_members(helpers.graph()))
+
 
 def get_teams_and_members(g):
     return query.all_teams(g)
+
 
 def add_teams_to_graph(g, team: model.FantasyTeam) -> Graph:
     g.add((team.subject, RDF.type, rdf.P.fau_f1.FantasyTeam))

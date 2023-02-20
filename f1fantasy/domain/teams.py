@@ -1,18 +1,22 @@
 import sys
-from itertools import groupby
 from rdflib import Graph, RDF, Literal, FOAF
 
-from f1fantasy import model, rdf
+from f1fantasy import model, rdf, query
+from f1fantasy.util import echo
+from . import helpers
 
 
-def show(g: Graph):
-    for team, mems in groupby(get_teams_and_members(g), lambda x: x[0]):
-        echo.echo(team.toPython())
-        for _, mem in mems:
-            echo.echo(f"|__ {mem.toPython()}")
+def show_teams():
+    # TODO: Too much logic associated with the team/member groupby.  Consider return model objects.
+    for team in get_teams_and_members(helpers.graph()):
+        echo.echo(team.name)
+        echo.echo(f"|__ Managed by: {team.manager.name}")
+        echo.echo("|__ Members:")
+        for mem in team.members:
+            echo.echo(f"    |__ {mem.name}")
 
 def get_teams_and_members(g):
-    return sparql.query(g, sparql.teams_and_members())
+    return query.all_teams(g)
 
 def add_teams_to_graph(g, team: model.FantasyTeam) -> Graph:
     g.add((team.subject, RDF.type, rdf.P.fau_f1.FantasyTeam))

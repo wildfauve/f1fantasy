@@ -5,6 +5,7 @@ from .season import (
 )
 
 from .teams import (
+    show_teams,
     add_teams_to_graph
 )
 

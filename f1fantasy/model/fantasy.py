@@ -14,6 +14,8 @@ class Member(value.ValueObject):
 
     def __post_init__(self):
         self.symbolic_name = self.name.replace(" ", "")
+        if self.subject:
+            return self
         self.subject = URIRef(f"{self.root_uri}{self.symbolic_name}")
 
 

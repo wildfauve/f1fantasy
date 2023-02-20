@@ -58,7 +58,7 @@ def create_gp(name, label, symbol):
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), help="Pick a Seasion")
 @click.option("--gp", "-g", type=click.Choice(helpers.gp_symbols()), help="GP Symbol")
 @click.option("--date", "-d", help="Date of GP")
-@click.option("--for-round", "-r", help="Round Number")
+@click.option("--for-round", "-r", type=int, help="Round Number")
 @click.command()
 def create_event(gp, season, date, for_round):
     """

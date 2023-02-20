@@ -46,4 +46,6 @@ class GpEvent(value.ValueObject):
     def __post_init__(self):
         self.name = f"{self.gp.name} {self.season.year}"
         self.symbolic_name = f"{self.gp.symbolic_name}-{self.season.year}"
+        if self.subject:
+            return self
         self.subject = URIRef(f"{self.root_uri}{self.season.year}/{self.gp.symbolic_name}")

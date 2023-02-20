@@ -6,7 +6,8 @@ from .gp import (
 
 from .fantasy import (
     Member,
-    FantasyTeam
+    FantasyTeam,
+    FantasyTeamEventScore
 )
 
 from .value import (

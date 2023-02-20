@@ -27,6 +27,8 @@ class FantasyTeam(value.ValueObject):
     root_uri: str = "https://fauve.io/fantasyTeam/"
 
     def __post_init__(self):
+        if self.subject:
+            return self
         self.symbolic_name = self.name.replace(" ", "")
         self.subject = URIRef(f"{self.root_uri}{self.symbolic_name}")
 
@@ -43,5 +45,7 @@ class FantasyTeamEventScore(value.ValueObject):
     points: int = None
 
     def __post_init__(self):
+        if self.subject:
+            return self
         self.subject = URIRef(f"{self.for_team.subject.toPython()}/EventScore/{self.for_event.symbolic_name}")
 

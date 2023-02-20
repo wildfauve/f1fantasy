@@ -24,3 +24,11 @@ def season_2023():
 @pytest.fixture
 def create_gp_for_bah():
     command.create_gp('Bahrain Grand Prix', 'BAH', "Bahrain")
+
+@pytest.fixture
+def bah_event():
+    command.create_season_event(gp_symbol="BAH", season_year=2023, gp_date='2023-03-05', for_round=1)
+
+@pytest.fixture
+def team_clojos():
+    command.create_team("Clojos", ("Claudie", "Fyodoro"), "Perky")

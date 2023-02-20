@@ -7,3 +7,7 @@ from .season import (
 from .teams import (
     add_teams_to_graph
 )
+
+from .fantasy import (
+    post_event_score
+)

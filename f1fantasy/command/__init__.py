@@ -7,3 +7,7 @@ from .season_command import (
 from .team_command import (
     create_team
 )
+
+from .fantasy_command import (
+    post_event_fantasy_score
+)

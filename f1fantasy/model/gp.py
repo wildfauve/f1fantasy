@@ -25,6 +25,8 @@ class Gp(value.ValueObject):
     root_uri: str = "https://fauve.io/f1/grandPrix/"
 
     def __post_init__(self):
+        if self.subject:
+            return self
         self.subject = URIRef(f"{self.root_uri}{self.symbolic_name}")
 
 

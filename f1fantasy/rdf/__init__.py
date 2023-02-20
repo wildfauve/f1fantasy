@@ -1,5 +1,10 @@
 from . import rdf_prefix as P
 
+from .sparql import (
+    query,
+    sparql_prefixes
+)
+
 from .binding import (
     bind
 )

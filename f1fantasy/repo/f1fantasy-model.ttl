@@ -455,7 +455,7 @@
     foaf:name "Clojos" ;
     fau-f1:hasFantasyMembers <https://fauve.io/fantasyMember/Claudie>,
         <https://fauve.io/fantasyMember/Fyodoro> ;
-    fau-f1:isManagedBy <https://fauve.io/fantasyMember/Juki> .
+    fau-f1:isManagedBy <https://fauve.io/fantasyMember/Perky> .
 
 <https://fauve.io/fantasyTeam/LightHouse> a foaf:Group,
         fau-f1:FantasyTeam ;

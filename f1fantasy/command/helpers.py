@@ -2,7 +2,7 @@ from typing import Tuple
 
 from f1fantasy import repo
 
-def save(val: Tuple) -> Tuple:
+def save(val: Tuple = None) -> Tuple:
     repo.save()
     return val
 

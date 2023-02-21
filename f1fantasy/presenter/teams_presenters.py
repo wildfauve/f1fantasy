@@ -27,12 +27,12 @@ def teams_table(teams: List[model.FantasyTeam]):
     table = Table(title="Fantasy Teams")
 
     table.add_column("Team", justify="right", style="cyan", no_wrap=True)
+    table.add_column("Principal", justify="center", style="green")
     table.add_column("Members", style="magenta")
-    table.add_column("Managers", justify="right", style="green")
 
     for team in teams:
         table.add_row(team.name,
-                      ", ".join([mem.name for mem in team.members]),
-                      team.manager.name)
+                      team.manager.name,
+                      ", ".join([mem.name for mem in team.members]))
 
     rich.console.print(table)

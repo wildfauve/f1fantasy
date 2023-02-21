@@ -1,16 +1,15 @@
-from typing import Tuple
+from typing import Tuple, Dict
 from pymonad.reader import Pipe
 
 from f1fantasy import domain, query, model
 
-from . import helpers
+from . import helpers, commanda
 
-
-def post_event_fantasy_score(gp_symbol, season_year, team: str, score: int):
+@commanda.command()
+def post_event_fantasy_score(gp_symbol, season_year, team: str, score: int, opts: Dict = None):
     result, _, _ = (Pipe((model.Result.OK, helpers.graph(), (gp_symbol, season_year, team, score)))
                     .then(_fantasy_score_model)
                     .then(_build_score_triples)
-                    .then(helpers.save)
                     .flush())
     return result
 
@@ -30,6 +29,8 @@ def _fantasy_score_model(val: Tuple) -> Tuple:
 
 
 def _build_score_triples(val: Tuple) -> Tuple:
-    _, g, team_score_model = val
+    result, g, team_score_model = val
+    if result == model.Result.ERR:
+        return val
     domain.post_event_score(g, team_score_model)
     return model.Result.OK, g, team_score_model

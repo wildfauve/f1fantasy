@@ -11,3 +11,7 @@ from .team_command import (
 from .fantasy_command import (
     post_event_fantasy_score
 )
+
+from .commanda import (
+    runner
+)

@@ -39,5 +39,5 @@ def _add_gp_event_to_graph(g, event):
     g.add((event.subject, rdf.P.fau_ev.isEventOf, event.gp.subject))
     g.set((event.subject, rdf.P.fau_ev.label, Literal(event.name)))
     g.set((event.subject, rdf.P.fau_f1.isForSeason, event.season.subject))
-    g.set((event.subject, rdf.P.fau_f1.isGpRound, Literal(event.round)))
+    g.set((event.subject, rdf.P.fau_f1.isGpRound, Literal(event.for_round)))
     g.set((event.subject, rdf.P.fau_f1.hasGpDate, Literal(event.gp_date)))

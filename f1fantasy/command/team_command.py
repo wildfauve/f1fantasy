@@ -3,14 +3,13 @@ from pymonad.reader import Pipe
 
 from f1fantasy import domain, model
 
-from . import helpers
+from . import helpers, commanda
 
-
+@commanda.command()
 def create_team(team_name: str, members: Tuple[str], manager: str):
     result, _, _ = (Pipe((model.Result.OK, helpers.graph(), (team_name, members, manager)))
                     .then(_team_model)
                     .then(_build_triples)
-                    .then(helpers.save)
                     .flush())
     return result
 

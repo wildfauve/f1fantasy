@@ -3,32 +3,30 @@ from pymonad.reader import Pipe
 
 from f1fantasy import domain, query, model
 
-from . import helpers
+from . import helpers, commanda
 
 
+@commanda.command()
 def create_season(season: int):
     result, _, _ = (Pipe((model.Result.OK, helpers.graph(), season))
                     .then(_season_model)
                     .then(_build_season_triples)
-                    .then(helpers.save)
                     .flush())
     return result
 
-
+@commanda.command()
 def create_gp(name, symbol, label):
     result, _, _ = (Pipe((model.Result.OK, helpers.graph(), (name, symbol, label)))
                     .then(_gp_model)
                     .then(_build_gp_triples)
-                    .then(helpers.save)
                     .flush())
     return result
 
-
+@commanda.command()
 def create_season_event(gp_symbol, season_year, gp_date: str, for_round: int):
     result, _, _ = (Pipe((model.Result.OK, helpers.graph(), (gp_symbol, season_year, gp_date, for_round)))
                     .then(_gp_event_model)
                     .then(_build_gp_event_triples)
-                    .then(helpers.save)
                     .flush())
     return result
 
@@ -66,7 +64,7 @@ def _gp_event_model(val: Tuple) -> Tuple:
 
     return model.Result.OK, g, model.GpEvent(gp=gp,
                                              season=yr,
-                                             round=for_round,
+                                             for_round=for_round,
                                              gp_date=gp_date)
 
 

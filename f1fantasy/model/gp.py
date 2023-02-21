@@ -37,7 +37,7 @@ class GpEvent(value.ValueObject):
     name: str = None
     season: Season = None
     gp: Gp = None
-    round: int = None
+    for_round: int = None
     gp_date: str = None
     symbolic_name: str = None
     subject: URIRef = None

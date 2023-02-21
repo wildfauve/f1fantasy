@@ -8,5 +8,6 @@ from .seasons import (
 
 from .fantasy import (
     find_team_by_name,
-    all_teams
+    all_teams,
+    team_scores_by_gp_event
 )

@@ -10,5 +10,6 @@ from .teams import (
 )
 
 from .fantasy import (
+    season_scores,
     post_event_score
 )

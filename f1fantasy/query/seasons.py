@@ -18,6 +18,8 @@ def find_gp_event_by_symbol_and_season(g: Graph, symbol: str, season: int, to_mo
     result = helpers.single_result_or_none(rdf.query(g, gp_event_by_symbol_season_query(symbol, season)))
     if not to_model:
         return result
+    if not result:
+        return result
     season_sub, gp_sub, sub = result
     return model.GpEvent(subject=sub,
                          gp=_gp_to_model(subject=gp_sub,

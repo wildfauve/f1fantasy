@@ -31,7 +31,7 @@ def teams_table(teams: List[model.FantasyTeam]):
     table.add_column("Members", style="magenta")
 
 
-    for team in sorted(teams, key=lambda t: t.manager.name):
+    for team in sorted(teams, key=lambda t: t.manager):
         table.add_row(team.name,
                       team.manager.name,
                       ", ".join([mem.name for mem in team.members]))

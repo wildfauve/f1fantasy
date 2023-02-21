@@ -18,6 +18,10 @@ class Member(value.ValueObject):
             return self
         self.subject = URIRef(f"{self.root_uri}{self.symbolic_name}")
 
+    def __lt__(self, other):
+        # For the sorted function to compare
+        return self.name < other.name
+
 
 @dataclass
 class FantasyTeam(value.ValueObject):

@@ -19,5 +19,3 @@ def test_generate_season_scores(configure_repo,
     assert series['team'].to_list() == ['Clojos', 'LightHouse']
     assert series['1-BAH'].to_list() == [100, 120]
     assert series['2-SAU'].to_list() == [150, 220]
-
-    breakpoint()

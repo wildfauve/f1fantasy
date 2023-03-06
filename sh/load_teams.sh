@@ -12,3 +12,7 @@ poetry run team create -t "Light House" -m Piri -m Edouard -m Sandi -m Pinky -m 
 poetry run team create -t "carter.morris.racing" -m Carter -m Morris -p Perky
 poetry run team create -t "Clojos" -m Claudie -m Fyodoro -p Perky
 
+poetry run team create -t "DunnDuck" -m Reubeno -p Reubeno
+poetry run team create -t "DunnPro" -m Reubeno -p Reubeno
+poetry run team create -t "DunnIt" -m Reubeno -p Reubeno
+

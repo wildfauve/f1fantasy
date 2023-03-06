@@ -26,11 +26,16 @@ def add_teams_to_graph(g, team: model.FantasyTeam) -> Graph:
 
 def add_members(g, team_subject, members):
     for mem in members:
+        if member_in_team(g, team_subject, mem.subject):
+            return g
         s, _, _ = rdf.first_matching_triple(g, (mem.subject, None, None))
-        if not s:
-            g.add((team_subject, rdf.P.fau_f1.hasFantasyMembers, mem.subject))
-            g.add((mem.subject, RDF.type, rdf.P.fau_f1.FantasyMember))
-            g.set((mem.subject, FOAF.name, Literal(mem.name)))
+        g.add((team_subject, rdf.P.fau_f1.hasFantasyMembers, mem.subject))
+        g.add((mem.subject, RDF.type, rdf.P.fau_f1.FantasyMember))
+        g.set((mem.subject, FOAF.name, Literal(mem.name)))
+
+
+def member_in_team(g, team_sub, mem_sub):
+    return rdf.first_matching_triple(g, (team_sub, rdf.P.fau_f1.hasFantasyMembers, mem_sub)) != (None, None, None)
 
 
 def build_graph(g):

@@ -4,7 +4,7 @@ from functools import partial
 
 from f1fantasy import domain, query, model, repo, dataframe
 
-from . import helpers, commanda
+from . import helpers, commanda, fantasy_df_builder
 
 
 @commanda.command()
@@ -30,7 +30,7 @@ def post_event_fantasy_accum_score(gp_symbol, season_year, team: str, score: int
 
 
 def team_scores_query(season: int, accum: bool, g=None):
-    return dataframe.team_scores(g=g if g else repo.graph(), season=int(season), accum=accum)
+    return fantasy_df_builder.team_scores(g=g if g else repo.graph(), season=int(season), accum=accum)
 
 
 def _fantasy_score_model(event_score_fn: Callable, val: Tuple) -> Tuple:

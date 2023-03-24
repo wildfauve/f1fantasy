@@ -1,22 +1,21 @@
 from typing import List, Tuple, Dict
-import polars as pl
 from rdflib import Graph
 from functools import reduce
 from dataclasses import dataclass
 
-from f1fantasy import model, query
+from f1fantasy import model, query, dataframe
 from f1fantasy.util import fn
 
 
-def team_scores(g: Graph, season: int, accum: bool) -> pl.DataFrame:
+def team_scores(g: Graph, season: int, accum: bool):
     scores = _scores_table(_team_scores_query(g, season))
 
     if not accum:
-        return pl.DataFrame(scores)
+        return dataframe.build_df(scores)
 
     acc_scores = _accumulate_scores(scores)
 
-    return pl.DataFrame(acc_scores)
+    return dataframe.build_df(acc_scores)
 
 
 def _team_scores_query(g: Graph, season: int) -> List[model.FantasyTeamEventScore]:
@@ -64,6 +63,8 @@ def _accumulate_scores(scores: Dict):
 
 def acc_for_round(scores, accums, loc_of_last_accum, races):
     this_race, nxt_races = fn.fst_rst(list(races))
+    if not this_race:
+        return accums
     accums.update({this_race: [x + y for x, y in zip(accums[loc_of_last_accum], scores[this_race])]})
     if not nxt_races:
         return accums

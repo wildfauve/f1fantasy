@@ -2,8 +2,10 @@ from typing import Optional, List
 from dataclasses import dataclass, field
 from rdflib import URIRef
 
-
+from f1fantasy import dataframe
 from . import value, gp
+
+
 
 @dataclass
 class Member(value.ValueObject):
@@ -58,8 +60,9 @@ class FantasyTeamEventScore(value.ValueObject):
 
 def event_score_from_aggregate(for_team, for_event, points, df):
     if not df.columns[1:]:
-        return event_score_per_race(for_team, for_event, points, df)
-    breakpoint()
+        return event_score_per_race(for_team, for_event, points)
+    _team, points_sum = dataframe.sum_races(dataframe.filter_team_name(df, for_team.name), df.columns[1:]).row(0)
+    return event_score_per_race(for_team, for_event, points - points_sum)
 
-def event_score_per_race(for_team, for_event, points, df):
+def event_score_per_race(for_team, for_event, points, df = None):
     return FantasyTeamEventScore(for_team=for_team, for_event=for_event, points=points)

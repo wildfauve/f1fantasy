@@ -25,12 +25,13 @@ def post_points(team, season, gp, points):
 
 
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Seasion")
+@click.option("--accum/--ind", "-a/-i", required=False, default=False, help="Individual Race Scores or Accumulated Race scores")
 @click.command()
-def show_table(season):
+def show_table(season, accum):
     """
     Show the Fantasy Points Table
     """
-    presenter.event_team_scores_table(dataframe.team_scores(g=repo.graph(), season=int(season)))
+    presenter.event_team_scores_table(command.team_scores_query(season=int(season), accum=accum))
     pass
 
 

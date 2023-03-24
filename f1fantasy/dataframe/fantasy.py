@@ -2,14 +2,21 @@ from typing import List, Tuple, Dict
 import polars as pl
 from rdflib import Graph
 from functools import reduce
+from dataclasses import dataclass
 
 from f1fantasy import model, query
+from f1fantasy.util import fn
 
 
-def team_scores(g: Graph, season: int) -> pl.DataFrame:
+def team_scores(g: Graph, season: int, accum: bool) -> pl.DataFrame:
     scores = _scores_table(_team_scores_query(g, season))
 
-    return pl.DataFrame(scores)
+    if not accum:
+        return pl.DataFrame(scores)
+
+    acc_scores = _accumulate_scores(scores)
+
+    return pl.DataFrame(acc_scores)
 
 
 def _team_scores_query(g: Graph, season: int) -> List[model.FantasyTeamEventScore]:
@@ -22,9 +29,18 @@ def _scores_table(scores: List[model.FantasyTeamEventScore]):
 
 
 def _empty_table(score_tuples: List[Tuple]) -> Dict:
+    """
+    Takes in scores generated from a SPARQL query which have been converted to a list of tuples
+        [('BAH', 1, 'Bellasi Bronzino', 49), ('BAH', 1, 'Clojos', 212),('SAU', 2, 'Bellasi Bronzino', 186), ('SAU', 2, 'Clojos', 183)]
+    Finds all the events to be used for the column headings > {('SAU', 2), ('BAH', 1)}
+    Finally returns a Dict as follows > {'team': [], '1-BAH': [], '2-SAU': []}
+    :param score_tuples:
+    :return:
+    """
     sorted({(score[0], score[1]) for score in score_tuples}, key=lambda s: s[1])
     table = {"team": []}
-    [table.update({f"{rd}-{ev}": []}) for ev, rd in sorted({(score[0], score[1]) for score in score_tuples}, key=lambda s: s[1])]
+    [table.update({f"{rd}-{ev}": []}) for ev, rd in
+     sorted({(score[0], score[1]) for score in score_tuples}, key=lambda s: s[1])]
     return table
 
 
@@ -35,6 +51,23 @@ def _reducer(table: Dict, row):
     column_name = [k for k in table.keys() if str(rd) in k][0]
     table[column_name].append(points)
     return table
+
+
+def _accumulate_scores(scores: Dict):
+    _teams, all_races = fn.fst_rst(list(scores.keys()))
+    if not all_races:
+        return scores
+
+    fst_race, *races = all_races
+    return {**{"team": scores['team']}, **acc_for_round(scores, {fst_race: scores[fst_race]}, fst_race, races)}
+
+
+def acc_for_round(scores, accums, loc_of_last_accum, races):
+    this_race, nxt_races = fn.fst_rst(list(races))
+    accums.update({this_race: [x + y for x, y in zip(accums[loc_of_last_accum], scores[this_race])]})
+    if not nxt_races:
+        return accums
+    breakpoint()
 
 
 def _scores_to_tuples(scores: List[model.FantasyTeamEventScore]) -> List[Tuple]:

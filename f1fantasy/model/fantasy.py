@@ -55,3 +55,11 @@ class FantasyTeamEventScore(value.ValueObject):
             return self
         self.subject = URIRef(f"{self.for_team.subject.toPython()}/EventScore/{self.for_event.symbolic_name}")
 
+
+def event_score_from_aggregate(for_team, for_event, points, df):
+    if not df.columns[1:]:
+        return event_score_per_race(for_team, for_event, points, df)
+    breakpoint()
+
+def event_score_per_race(for_team, for_event, points, df):
+    return FantasyTeamEventScore(for_team=for_team, for_event=for_event, points=points)

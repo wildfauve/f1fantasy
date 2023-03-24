@@ -9,7 +9,9 @@ from .team_command import (
 )
 
 from .fantasy_command import (
-    post_event_fantasy_score
+    post_event_fantasy_score,
+    team_scores_query,
+    post_event_fantasy_accum_score
 )
 
 from .commanda import (

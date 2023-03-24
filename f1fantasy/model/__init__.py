@@ -7,7 +7,9 @@ from .gp import (
 from .fantasy import (
     Member,
     FantasyTeam,
-    FantasyTeamEventScore
+    FantasyTeamEventScore,
+    event_score_from_aggregate,
+    event_score_per_race
 )
 
 from .value import (

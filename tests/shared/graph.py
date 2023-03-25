@@ -57,16 +57,16 @@ def team_lighthouse():
 @pytest.fixture
 def team_scores_single_event():
     (command.runner()
-     .cmd(command.post_event_fantasy_score, "BAH", 2023, team="Clojos", score=100)
-     .cmd(command.post_event_fantasy_score, "BAH", 2023, "LightHouse", 120)
+     .cmd(command._post_event_fantasy_score, "BAH", 2023, team="Clojos", score=100)
+     .cmd(command._post_event_fantasy_score, "BAH", 2023, "LightHouse", 120)
      .run())
 
 
 @pytest.fixture
 def team_scores_multi_event():
     (command.runner()
-     .cmd(command.post_event_fantasy_score, "BAH", 2023, team="Clojos", score=100)
-     .cmd(command.post_event_fantasy_score, "BAH", 2023, "LightHouse", 120)
-     .cmd(command.post_event_fantasy_score, "SAU", 2023, team="Clojos", score=150)
-     .cmd(command.post_event_fantasy_score, "SAU", 2023, "LightHouse", 220)
+     .cmd(command._post_event_fantasy_score, "BAH", 2023, team="Clojos", score=100)
+     .cmd(command._post_event_fantasy_score, "BAH", 2023, "LightHouse", 120)
+     .cmd(command._post_event_fantasy_score, "SAU", 2023, team="Clojos", score=150)
+     .cmd(command._post_event_fantasy_score, "SAU", 2023, "LightHouse", 220)
      .run())

@@ -183,7 +183,7 @@
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/BellasiBronzino> .
 
 <https://fauve.io/fantasyTeam/BellasiBronzino/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
-    fau-f1:hasEventScore 186 ;
+    fau-f1:hasEventScore 182 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/BellasiBronzino> .
 
@@ -243,7 +243,7 @@
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/GelatoGiants> .
 
 <https://fauve.io/fantasyTeam/GelatoGiants/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
-    fau-f1:hasEventScore 278 ;
+    fau-f1:hasEventScore 274 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/GelatoGiants> .
 
@@ -253,7 +253,7 @@
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/HeroHangouts> .
 
 <https://fauve.io/fantasyTeam/HeroHangouts/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
-    fau-f1:hasEventScore 192 ;
+    fau-f1:hasEventScore 184 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/HeroHangouts> .
 
@@ -283,7 +283,7 @@
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/OptimisticinOrange> .
 
 <https://fauve.io/fantasyTeam/OptimisticinOrange/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
-    fau-f1:hasEventScore 186 ;
+    fau-f1:hasEventScore 182 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/OptimisticinOrange> .
 

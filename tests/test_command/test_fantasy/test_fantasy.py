@@ -4,7 +4,7 @@ from f1fantasy import command, model, rdf, repo
 
 
 def test_post_score(configure_repo, season_2023, create_gp_for_bah, bah_event, team_clojos):
-    result = command.post_event_fantasy_score(gp_symbol="BAH", season_year=2023, team="Clojos", score=100)
+    result = command.post_score_controller(gp_symbol="BAH", season_year=2023, team="Clojos", score=100, accum=False)
 
     assert result == model.Result.OK
 
@@ -24,7 +24,7 @@ def test_post_accum_score(configure_repo,
                           bah_event,
                           sau_event,
                           team_clojos):
-    result = command.post_event_fantasy_accum_score(gp_symbol="BAH", season_year=2023, team="Clojos", score=100)
+    result = command.post_score_controller(gp_symbol="BAH", season_year=2023, team="Clojos", score=100, accum=True)
 
     assert result == model.Result.OK
 
@@ -36,7 +36,7 @@ def test_post_accum_score(configure_repo,
 
     assert {r[2].toPython() for r in team_score} == expected_objs
 
-    result = command.post_event_fantasy_accum_score(gp_symbol="SAU", season_year=2023, team="Clojos", score=320)
+    result = command.post_score_controller(gp_symbol="SAU", season_year=2023, team="Clojos", score=320, accum=True)
 
     assert result == model.Result.OK
 

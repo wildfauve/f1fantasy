@@ -1,29 +1,48 @@
 from typing import Tuple, Dict, Callable
 from pymonad.reader import Pipe
 from functools import partial
+import csv
 
-from f1fantasy import domain, query, model, repo, dataframe
+from f1fantasy import domain, query, model, repo
+from f1fantasy.initialiser import rich
 
 from . import helpers, commanda, fantasy_df_builder
 
+@commanda.command()
+def post_points_file(file: str, season: int, accum: bool = False):
+    g = helpers.graph()
+    df = team_scores_query(season, True, g)
+    with open(file, newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        for gp_symbol, team, points in reader:
+            rich.console.print(f"gp: [blue]{gp_symbol}, team: [yellow]{team}, points: [green]{points}")
+            post_runner(model.event_score_from_aggregate if accum else model.event_score_per_race,
+                        g,
+                        df,
+                        gp_symbol,
+                        season,
+                        team,
+                        int(points))
+
+    return model.Result.OK
 
 @commanda.command()
-def post_event_fantasy_score(gp_symbol, season_year, team: str, score: int, opts: Dict = None):
+def post_score_controller(gp_symbol, season_year, team: str, score: int, accum: bool = False, opts: Dict = None):
     g = helpers.graph()
-    result, _, _, _ = (
-        Pipe((model.Result.OK, g, team_scores_query(season_year, True, g), (gp_symbol, season_year, team, score)))
-        .then(partial(_fantasy_score_model, model.event_score_per_race))
-        .then(_build_score_triples)
-        .flush())
-    return result
+    df = team_scores_query(season_year, True, g)
+    return post_runner(model.event_score_from_aggregate if accum else model.event_score_per_race,
+                       g,
+                       df,
+                       gp_symbol,
+                       season_year,
+                       team,
+                       score)
 
 
-@commanda.command()
-def post_event_fantasy_accum_score(gp_symbol, season_year, team: str, score: int, opts: Dict = None):
-    g = helpers.graph()
+def post_runner(points_fn, g, df, gp_symbol, season_year, team, score):
     result, _, _, _ = (
-        Pipe((model.Result.OK, g, team_scores_query(season_year, True, g), (gp_symbol, season_year, team, score)))
-        .then(partial(_fantasy_score_model, model.event_score_from_aggregate))
+        Pipe((model.Result.OK, g, df, (gp_symbol, season_year, team, score)))
+        .then(partial(_fantasy_score_model, points_fn))
         .then(_build_score_triples)
         .flush())
     return result

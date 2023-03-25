@@ -15,12 +15,25 @@ def cli():
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
 @click.option("--gp", "-g", type=click.Choice(helpers.gp_symbols()), required=True, help="GP Symbol")
 @click.option('--points', '-p', type=int, required=True)
+@click.option("--accum/--ind", "-a/-i", required=False, default=False, help="Individual Race Scores or Accumulated Race scores")
 @click.command()
-def post_points(team, season, gp, points):
+def post_points(team, season, gp, points, accum):
     """
     Creates a new Fantasy Team with members
     """
-    command.post_event_fantasy_score(gp_symbol=gp, season_year=int(season), team=team, score=points)
+    command.post_score_controller(gp_symbol=gp, season_year=int(season), team=team, score=points, accum=accum)
+    pass
+
+
+@click.option('--file', '-f', required=True)
+@click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
+@click.option("--accum/--ind", "-a/-i", required=False, default=False, help="Individual Race Scores or Accumulated Race scores")
+@click.command()
+def post_points_file(file, season, accum):
+    """
+    Creates a new Fantasy Team with members
+    """
+    command.post_points_file(file=file, season=int(season), accum=accum)
     pass
 
 
@@ -36,4 +49,5 @@ def show_table(season, accum):
 
 
 cli.add_command(post_points)
+cli.add_command(post_points_file)
 cli.add_command(show_table)

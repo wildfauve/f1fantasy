@@ -7,16 +7,16 @@ from f1fantasy import model, query, dataframe
 from f1fantasy.util import fn
 
 
-def team_scores(g: Graph, season: int, accum: bool):
+def team_scores(g: Graph, season: int, accum: bool, sort: bool = False):
     scores = _scores_table(_team_scores_query(g, season))
 
     if not accum:
-        return dataframe.build_df(scores)
+        return dataframe.build_df(scores, sort)
 
     acc_scores = _accumulate_scores(scores)
 
 
-    return dataframe.build_df(acc_scores)
+    return dataframe.build_df(acc_scores, sort)
 
 
 def _team_scores_query(g: Graph, season: int) -> List[model.FantasyTeamEventScore]:

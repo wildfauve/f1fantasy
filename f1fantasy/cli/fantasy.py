@@ -39,23 +39,25 @@ def post_points_file(file, season, accum):
 
 @click.option('--file', '-f', required=True)
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
+@click.option("--position/--accum", "-p/-a", required=False, default=False, help="Plot Position, or plot total scores")
 @click.command()
-def ranking_plot(file, season):
+def ranking_plot(file, season, position):
     """
     Generate a Ranking Graph
     """
-    command.scores_plot(file=file, season=int(season))
+    command.scores_plot(file=file, season=int(season), position=position)
     pass
 
 
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Seasion")
 @click.option("--accum/--ind", "-a/-i", required=False, default=False, help="Individual Race Scores or Accumulated Race scores")
+@click.option("--sort/--unsorted", "-t/-u", required=False, default=False, help="Sort the results in descending order")
 @click.command()
-def show_table(season, accum):
+def show_table(season, accum, sort):
     """
     Show the Fantasy Points Table
     """
-    presenter.event_team_scores_table(command.team_scores_query(season=int(season), accum=accum))
+    presenter.event_team_scores_table(command.team_scores_query(season=int(season), accum=accum, sort=sort))
     pass
 
 

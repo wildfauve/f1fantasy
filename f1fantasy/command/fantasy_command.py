@@ -49,13 +49,15 @@ def post_runner(points_fn, g, df, gp_symbol, season_year, team, score):
     return result
 
 
-def team_scores_query(season: int, accum: bool, g=None):
-    return fantasy_df_builder.team_scores(g=g if g else repo.graph(), season=int(season), accum=accum)
+def team_scores_query(season: int, accum: bool, sort: bool = False, g=None):
+    return fantasy_df_builder.team_scores(g=g if g else repo.graph(), season=int(season), accum=accum, sort=sort)
 
 
-def scores_plot(file: str, season: int, g=None):
+def scores_plot(file: str, season: int, position: bool= False, g=None):
     df = team_scores_query(season, True, g)
-    return plot.rank_plot(file, df)
+    if position:
+        return plot.rank_plot(file, df)
+    return plot.total_score_plot(file, df)
 
 
 

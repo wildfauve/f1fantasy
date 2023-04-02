@@ -11,7 +11,8 @@ from .team_command import (
 from .fantasy_command import (
     post_points_file,
     post_score_controller,
-    team_scores_query
+    team_scores_query,
+    scores_plot
 )
 
 from .commanda import (

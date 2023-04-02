@@ -59,6 +59,9 @@ class FantasyTeamEventScore(value.ValueObject):
 
 
 def event_score_from_aggregate(for_team, for_event, points, df):
+    """
+    DF contains per race
+    """
     if not df.columns[1:]:
         return event_score_per_race(for_team, for_event, points)
     _team, points_sum = dataframe.sum_races(dataframe.filter_team_name(df, for_team.name), df.columns[1:]).row(0)

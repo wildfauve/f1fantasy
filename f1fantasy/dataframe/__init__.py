@@ -4,5 +4,6 @@ from .expr import (
 )
 
 from .dataframe import (
-    build_df
+    build_df,
+    race_rank
 )

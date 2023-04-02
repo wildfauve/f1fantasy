@@ -15,6 +15,7 @@ def team_scores(g: Graph, season: int, accum: bool):
 
     acc_scores = _accumulate_scores(scores)
 
+
     return dataframe.build_df(acc_scores)
 
 
@@ -68,7 +69,7 @@ def acc_for_round(scores, accums, loc_of_last_accum, races):
     accums.update({this_race: [x + y for x, y in zip(accums[loc_of_last_accum], scores[this_race])]})
     if not nxt_races:
         return accums
-    breakpoint()
+    return acc_for_round(scores, accums, this_race, nxt_races)
 
 
 def _scores_to_tuples(scores: List[model.FantasyTeamEventScore]) -> List[Tuple]:

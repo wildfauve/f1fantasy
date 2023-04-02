@@ -3,15 +3,16 @@ from pymonad.reader import Pipe
 from functools import partial
 import csv
 
-from f1fantasy import domain, query, model, repo
+from f1fantasy import domain, query, model, repo, plot
 from f1fantasy.initialiser import rich
 
 from . import helpers, commanda, fantasy_df_builder
 
+
 @commanda.command()
 def post_points_file(file: str, season: int, accum: bool = False):
     g = helpers.graph()
-    df = team_scores_query(season, True, g)
+    df = team_scores_query(season, False, g)
     with open(file, newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for gp_symbol, team, points in reader:
@@ -50,6 +51,12 @@ def post_runner(points_fn, g, df, gp_symbol, season_year, team, score):
 
 def team_scores_query(season: int, accum: bool, g=None):
     return fantasy_df_builder.team_scores(g=g if g else repo.graph(), season=int(season), accum=accum)
+
+
+def scores_plot(file: str, season: int, g=None):
+    df = team_scores_query(season, True, g)
+    return plot.rank_plot(file, df)
+
 
 
 def _fantasy_score_model(event_score_fn: Callable, val: Tuple) -> Tuple:

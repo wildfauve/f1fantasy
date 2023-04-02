@@ -37,6 +37,17 @@ def post_points_file(file, season, accum):
     pass
 
 
+@click.option('--file', '-f', required=True)
+@click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
+@click.command()
+def ranking_plot(file, season):
+    """
+    Generate a Ranking Graph
+    """
+    command.scores_plot(file=file, season=int(season))
+    pass
+
+
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Seasion")
 @click.option("--accum/--ind", "-a/-i", required=False, default=False, help="Individual Race Scores or Accumulated Race scores")
 @click.command()
@@ -51,3 +62,4 @@ def show_table(season, accum):
 cli.add_command(post_points)
 cli.add_command(post_points_file)
 cli.add_command(show_table)
+cli.add_command(ranking_plot)

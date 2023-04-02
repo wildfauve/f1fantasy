@@ -4,10 +4,13 @@ from itertools import groupby
 
 from f1fantasy import rdf, model
 from . import helpers
+from f1fantasy.util import error
 
 
 def find_team_by_name(g: Graph, name: str, to_model: bool = False) -> Union[Tuple, model.FantasyTeam]:
     result = helpers.single_result_or_none(rdf.query(g, team_by_name_query(name)))
+    if not result:
+        raise error.TeamSearchError(f"Can't find team with name {name}")
     if not to_model:
         return result
     sub, = result

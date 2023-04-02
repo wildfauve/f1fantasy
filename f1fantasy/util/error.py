@@ -1,10 +1,10 @@
-class AoException(Exception):
+class F1FantasyException(Exception):
     pass
 
 
-class ConfigException(AoException):
+class ConfigException(F1FantasyException):
     pass
 
 
-class PlayerAdvanceError(AoException):
+class TeamSearchError(F1FantasyException):
     pass

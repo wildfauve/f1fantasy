@@ -5,7 +5,7 @@ from pathlib import Path
 from f1fantasy import rdf
 from f1fantasy.util import singleton
 
-DB_LOCATION = (Path(__file__).parent / "f1fantasy-model.ttl")
+DB_LOCATION = (Path(__file__).parent.parent.parent / "data" / "db" / "f1fantasy-model.ttl")
 
 
 class Db:

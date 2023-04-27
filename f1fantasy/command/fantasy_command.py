@@ -27,6 +27,7 @@ def post_points_file(file: str, season: int, accum: bool = False):
 
     return model.Result.OK
 
+
 @commanda.command()
 def post_score_controller(gp_symbol, season_year, team: str, score: int, accum: bool = False, opts: Dict = None):
     g = helpers.graph()
@@ -53,12 +54,11 @@ def team_scores_query(season: int, accum: bool, sort: bool = False, g=None):
     return fantasy_df_builder.team_scores(g=g if g else repo.graph(), season=int(season), accum=accum, sort=sort)
 
 
-def scores_plot(file: str, season: int, position: bool= False, g=None):
+def scores_plot(file: str, season: int, position: bool = False, g=None):
     df = team_scores_query(season, True, g)
     if position:
         return plot.rank_plot(file, df)
     return plot.total_score_plot(file, df)
-
 
 
 def _fantasy_score_model(event_score_fn: Callable, val: Tuple) -> Tuple:

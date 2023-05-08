@@ -27,7 +27,7 @@ def post_points(team, season, gp, points, accum):
 
 @click.option('--file', '-f', required=True)
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
-@click.option("--accum/--ind", "-a/-i", required=False, default=False, help="Individual Race Scores or Accumulated Race scores")
+@click.option("--accum/--ind", "-a/-i", required=False, default=True, help="Individual Race Scores or Accumulated Race scores")
 @click.command()
 def post_points_file(file, season, accum):
     """
@@ -39,7 +39,7 @@ def post_points_file(file, season, accum):
 
 @click.option('--file', '-f', required=True)
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
-@click.option("--position/--accum", "-p/-a", required=False, default=False, help="Plot Position, or plot total scores")
+@click.option("--position/--accum", "-p/-a", required=True, default=False, help="Plot Position, or plot total scores")
 @click.command()
 def ranking_plot(file, season, position):
     """

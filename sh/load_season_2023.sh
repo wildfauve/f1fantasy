@@ -8,7 +8,6 @@ poetry run gp create-event -g SAU -s 2023 -d '2023-03-19' -r 2
 poetry run gp create-event -g AUS -s 2023 -d '2023-04-02' -r 3
 poetry run gp create-event -g AZB -s 2023 -d '2023-04-30' -r 4
 poetry run gp create-event -g MIA -s 2023 -d '2023-05-07' -r 5
-poetry run gp create-event -g EMR -s 2023 -d '2023-05-21' -r 6
 poetry run gp create-event -g MON -s 2023 -d '2023-05-28' -r 7
 poetry run gp create-event -g SPA -s 2023 -d '2023-06-04' -r 8
 poetry run gp create-event -g CAN -s 2023 -d '2023-06-18' -r 9

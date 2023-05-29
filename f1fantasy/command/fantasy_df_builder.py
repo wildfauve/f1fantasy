@@ -15,7 +15,6 @@ def team_scores(g: Graph, season: int, accum: bool, sort: bool = False):
 
     acc_scores = _accumulate_scores(scores)
 
-
     return dataframe.build_df(acc_scores, sort)
 
 

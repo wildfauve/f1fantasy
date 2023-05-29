@@ -39,7 +39,7 @@ def post_points_file(file, season, accum):
 
 @click.option('--file', '-f', required=True)
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
-@click.option("--position/--accum", "-p/-a", required=True, default=False, help="Plot Position, or plot total scores")
+@click.option("--position/--total", "-p/-t", required=True, default=False, help="Plot Position, or plot total scores")
 @click.command()
 def ranking_plot(file, season, position):
     """

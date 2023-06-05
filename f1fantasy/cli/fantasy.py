@@ -28,8 +28,10 @@ def post_points(team, season, gp, points, accum):
 @click.option('--file', '-f', required=True)
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
 @click.option("--accum/--ind", "-a/-i", required=False, default=True, help="Individual Race Scores or Accumulated Race scores")
+@click.option("--to-discord", "channel", required=False, flag_value="to-discord", default=False,
+              help="Post the plot to Discord")
 @click.command()
-def post_points_file(file, season, accum):
+def post_points_file(file, season, accum, channel):
     """
     Creates a new Fantasy Team with members
     """
@@ -40,12 +42,15 @@ def post_points_file(file, season, accum):
 @click.option('--file', '-f', required=True)
 @click.option("--season", "-s", type=click.Choice(helpers.seasons()), required=True, help="Pick a Season")
 @click.option("--position/--total", "-p/-t", required=True, default=False, help="Plot Position, or plot total scores")
+@click.option("--to-discord", "channel", required=False, flag_value="to-discord", default=False,
+              help="Post the plot to Discord")
 @click.command()
-def ranking_plot(file, season, position):
+def ranking_plot(file, season, position, channel):
     """
     Generate a Ranking Graph
     """
     command.scores_plot(file=file, season=int(season), position=position)
+    presenter.plot_to_channel(file, channel, position)
     pass
 
 

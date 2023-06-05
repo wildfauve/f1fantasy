@@ -22,6 +22,8 @@ polars = "^0.16.7"
 pyarrow = "^11.0.0"
 matplotlib = "^3.7.1"
 numpy = "^1.24.2"
+discord-webhook = "^1.1.0"
+python-dotenv = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]

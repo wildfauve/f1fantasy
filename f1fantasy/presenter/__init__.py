@@ -7,3 +7,7 @@ from .teams_presenters import (
 from .fantasy_presenters import (
     event_team_scores_table
 )
+
+from .plot_channel_sender import (
+    plot_to_channel
+)

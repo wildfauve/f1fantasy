@@ -1,3 +1,6 @@
+# Temp FIles
+_temp/
+
 # Pycharm
 .idea/
 # test hive dbs

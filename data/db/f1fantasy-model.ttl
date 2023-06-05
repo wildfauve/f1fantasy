@@ -116,14 +116,6 @@
     fau-f1:isForSeason <https://fauve.io/f1/season/2023> ;
     fau-f1:isGpRound 16 .
 
-<https://fauve.io/f1/grandPrix/2023/SPA> a fau-ev:SportsEvent,
-        fau-f1:Formula1GrandPrix ;
-    fau-ev:isEventOf <https://fauve.io/f1/grandPrix/SPA> ;
-    fau-ev:label "Spanish Grand Prix 2023" ;
-    fau-f1:hasGpDate "2023-06-04" ;
-    fau-f1:isForSeason <https://fauve.io/f1/season/2023> ;
-    fau-f1:isGpRound 8 .
-
 <https://fauve.io/f1/grandPrix/2023/USA> a fau-ev:SportsEvent,
         fau-f1:Formula1GrandPrix ;
     fau-ev:isEventOf <https://fauve.io/f1/grandPrix/USA> ;
@@ -172,6 +164,11 @@
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/BellasiBronzino> .
 
+<https://fauve.io/fantasyTeam/BellasiBronzino/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 171 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/BellasiBronzino> .
+
 <https://fauve.io/fantasyTeam/Clojos/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 296 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/AUS> ;
@@ -200,6 +197,11 @@
 <https://fauve.io/fantasyTeam/Clojos/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 183 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/Clojos> .
+
+<https://fauve.io/fantasyTeam/Clojos/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 237 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/Clojos> .
 
 <https://fauve.io/fantasyTeam/DunnDuck/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
@@ -232,6 +234,11 @@
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/DunnDuck> .
 
+<https://fauve.io/fantasyTeam/DunnDuck/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 243 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/DunnDuck> .
+
 <https://fauve.io/fantasyTeam/DunnIt/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 198 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/AUS> ;
@@ -260,6 +267,11 @@
 <https://fauve.io/fantasyTeam/DunnIt/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 129 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/DunnIt> .
+
+<https://fauve.io/fantasyTeam/DunnIt/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 221 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/DunnIt> .
 
 <https://fauve.io/fantasyTeam/DunnPro/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
@@ -292,6 +304,11 @@
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/DunnPro> .
 
+<https://fauve.io/fantasyTeam/DunnPro/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 267 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/DunnPro> .
+
 <https://fauve.io/fantasyTeam/FauveF1/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 207 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/AUS> ;
@@ -320,6 +337,11 @@
 <https://fauve.io/fantasyTeam/FauveF1/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 272 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/FauveF1> .
+
+<https://fauve.io/fantasyTeam/FauveF1/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 286 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/FauveF1> .
 
 <https://fauve.io/fantasyTeam/GelatoGiants/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
@@ -352,6 +374,11 @@
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/GelatoGiants> .
 
+<https://fauve.io/fantasyTeam/GelatoGiants/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 278 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/GelatoGiants> .
+
 <https://fauve.io/fantasyTeam/HeroHangouts/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 81 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/AUS> ;
@@ -380,6 +407,11 @@
 <https://fauve.io/fantasyTeam/HeroHangouts/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 184 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/HeroHangouts> .
+
+<https://fauve.io/fantasyTeam/HeroHangouts/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 170 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/HeroHangouts> .
 
 <https://fauve.io/fantasyTeam/LightHouse/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
@@ -412,6 +444,11 @@
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/LightHouse> .
 
+<https://fauve.io/fantasyTeam/LightHouse/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 198 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/LightHouse> .
+
 <https://fauve.io/fantasyTeam/MusicalBears/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 292 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/AUS> ;
@@ -440,6 +477,11 @@
 <https://fauve.io/fantasyTeam/MusicalBears/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 247 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/MusicalBears> .
+
+<https://fauve.io/fantasyTeam/MusicalBears/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 277 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/MusicalBears> .
 
 <https://fauve.io/fantasyTeam/OptimisticinOrange/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
@@ -472,6 +514,11 @@
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/OptimisticinOrange> .
 
+<https://fauve.io/fantasyTeam/OptimisticinOrange/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 171 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/OptimisticinOrange> .
+
 <https://fauve.io/fantasyTeam/PolarPrecision/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 311 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/AUS> ;
@@ -500,6 +547,11 @@
 <https://fauve.io/fantasyTeam/PolarPrecision/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 302 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/PolarPrecision> .
+
+<https://fauve.io/fantasyTeam/PolarPrecision/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 286 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/PolarPrecision> .
 
 <https://fauve.io/fantasyTeam/RinksyRacing/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
@@ -532,6 +584,11 @@
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/RinksyRacing> .
 
+<https://fauve.io/fantasyTeam/RinksyRacing/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 186 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/RinksyRacing> .
+
 <https://fauve.io/fantasyTeam/SoaringSchiehallions/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 193 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/AUS> ;
@@ -562,6 +619,11 @@
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/SoaringSchiehallions> .
 
+<https://fauve.io/fantasyTeam/SoaringSchiehallions/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 246 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/SoaringSchiehallions> .
+
 <https://fauve.io/fantasyTeam/carter.morris.racing/EventScore/AUS-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 239 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/AUS> ;
@@ -590,6 +652,11 @@
 <https://fauve.io/fantasyTeam/carter.morris.racing/EventScore/SAU-2023> a fau-f1:FantasyEventScore ;
     fau-f1:hasEventScore 184 ;
     fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SAU> ;
+    fau-f1:isForTeam <https://fauve.io/fantasyTeam/carter.morris.racing> .
+
+<https://fauve.io/fantasyTeam/carter.morris.racing/EventScore/SPA-2023> a fau-f1:FantasyEventScore ;
+    fau-f1:hasEventScore 235 ;
+    fau-f1:isForEvent <https://fauve.io/f1/grandPrix/2023/SPA> ;
     fau-f1:isForTeam <https://fauve.io/fantasyTeam/carter.morris.racing> .
 
 <https://fauve.io/f1/grandPrix/ABD> a fau-f1:GrandPrix ;
@@ -798,6 +865,12 @@
 <https://fauve.io/fantasyMember/Reubeno> a fau-f1:FantasyMember ;
     foaf:name "Reubeno" .
 
+<https://fauve.io/fantasyMember/Juki> a fau-f1:FantasyMember ;
+    foaf:name "Juki" .
+
+<https://fauve.io/fantasyMember/Perky> a fau-f1:FantasyMember ;
+    foaf:name "Perky" .
+
 <https://fauve.io/fantasyTeam/BellasiBronzino> a foaf:Group,
         fau-f1:FantasyTeam ;
     foaf:name "Bellasi Bronzino" ;
@@ -909,12 +982,6 @@
         <https://fauve.io/fantasyMember/Morris> ;
     fau-f1:isManagedBy <https://fauve.io/fantasyMember/Perky> .
 
-<https://fauve.io/fantasyMember/Juki> a fau-f1:FantasyMember ;
-    foaf:name "Juki" .
-
-<https://fauve.io/fantasyMember/Perky> a fau-f1:FantasyMember ;
-    foaf:name "Perky" .
-
 <https://fauve.io/f1/grandPrix/2023/AUS> a fau-ev:SportsEvent,
         fau-f1:Formula1GrandPrix ;
     fau-ev:isEventOf <https://fauve.io/f1/grandPrix/AUS> ;
@@ -962,6 +1029,14 @@
     fau-f1:hasGpDate "2023-03-19" ;
     fau-f1:isForSeason <https://fauve.io/f1/season/2023> ;
     fau-f1:isGpRound 2 .
+
+<https://fauve.io/f1/grandPrix/2023/SPA> a fau-ev:SportsEvent,
+        fau-f1:Formula1GrandPrix ;
+    fau-ev:isEventOf <https://fauve.io/f1/grandPrix/SPA> ;
+    fau-ev:label "Spanish Grand Prix 2023" ;
+    fau-f1:hasGpDate "2023-06-04" ;
+    fau-f1:isForSeason <https://fauve.io/f1/season/2023> ;
+    fau-f1:isGpRound 8 .
 
 <https://fauve.io/f1/season/2023> a fau-f1:Season ;
     fau-f1:forYear 2023 .
